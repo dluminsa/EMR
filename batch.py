@@ -19,7 +19,7 @@ datasets = r'BATCH_REFERENCE'
 #CREDENTIALS_DF
 dfcred = pd.read_csv(filc)
 dfcred = dfcred[dfcred['user'].notna()].copy()
-for credential_column in ("DISTRICT", "MICRO-CLUSTER", "FACILITY"):
+for credential_column in ("DISTRICT", "FACILITY"):
     dfcred[credential_column] = (
         dfcred[credential_column].astype(str).str.strip()
     )
@@ -90,41 +90,13 @@ HMIS_MONTH_MAP = {
 }
 
 ART_REGIMENS = [
-    "d4T-3TC-NVP",
-    "d4T-3TC-EFV",
-    "AZT-3TC-NVP",
-    "AZT-3TC-EFV",
     "AZT-3TC-DTG",
-    "TDF-3TC-NVP",
     "TDF-3TC-EFV",
     "TDF-3TC-DTG",
-    "TDF-FTC-NVP",
-    "TDF-FTC-EFV",
-    "ABC-ddI(250)-LPV/r",
-    "ABC-ddI(400)-LPV/r",
-    "TDF-3TC-LPV/r",
-    "TDF-FTC-LPV/r",
-    "ZDV-ddI(250)-LPV/r",
-    "ZDV-ddI(400)-LPV/r",
-    "AZT-3TC-LPV/r",
-    "ABC-ddI-LPV/r",
-    "ABC-ddI-NFV",
-    "ABC-ddI-SQV/r",
-    "ZDV-ddI-LPV/r",
-    "AZT-ABC-LPV/r",
-    "ABC-ddI-ATV/r",
-    "AZT-3TC-ATV/r",
-    "ABC-3TC-NVP",
-    "ABC-3TC-EFV",
     "ABC-3TC-DTG",
-    "ABC-3TC-ATV/r",
-    "ABC-3TC-LPV/r",
-    "TDF-3TC-ATV/r",
+    "TDF-3TC-DRV/r",
     "Other",
 ]
-
-DEFAULT_ART_REGIMEN = "TDF-3TC-DTG"
-
 
 class ArtNumberMismatchError(RuntimeError):
     """Raised when search results do not contain the exact requested ART."""
@@ -679,7 +651,7 @@ def open_hmis_medication_tab(page):
     print("[hmis-form] Opened Medication tab")
 
 
-def select_hmis_regimen(page, regimen=DEFAULT_ART_REGIMEN):
+def select_hmis_regimen(page, regimen):
     """Select an ART regimen in the Medication tab."""
     if regimen not in ART_REGIMENS:
         raise ValueError(f"Unknown ART regimen: {regimen}")
@@ -736,52 +708,57 @@ def refresh_client_inputs(success_message=None):
 st.markdown(
     """
     <style>
+    .stApp,
+    [data-testid="stAppViewContainer"] {
+        background-color: #f7fafc;
+    }
+    [data-testid="stHeader"] {
+        background-color: transparent;
+    }
     .block-container {
-        max-width: 1100px;
-        padding-top: 1.5rem;
-        padding-bottom: 2.5rem;
+        max-width: 1180px;
+        padding-top: 1.25rem;
+        padding-bottom: 2rem;
     }
     h1 {
         color: #17324d;
         font-size: 2rem !important;
-        letter-spacing: -0.02em;
+        letter-spacing: 0;
+        margin-bottom: 1.25rem;
     }
-    .stApp,
-    .stApp p,
     .stApp label,
-    .stApp span,
     .stApp input,
-    .stApp button,
-    .stApp div[data-testid="stMarkdownContainer"] {
-        font-weight: 700 !important;
-    }
-    div[data-testid="stNumberInput"],
-    div[data-testid="stDateInput"] {
-        background: #fbfcfe;
-        border: 1px solid #dce4ed;
-        border-radius: 12px;
-        padding: 0.7rem 0.85rem 0.85rem;
+    .stApp button {
+        font-weight: 650 !important;
     }
     div[data-testid="stNumberInput"]:has(
         input[aria-label="ART number"]
-    ) button,
+    ) {
+        max-width: 24rem;
+    }
+    div[data-testid="stNumberInput"] button,
     div[data-testid="stNumberInput"]:has(
-        input[aria-label="Days refilled"]
+        input[aria-label="Other number of days"]
     ) button {
         display: none !important;
     }
-    div[data-testid="stNumberInput"]:has(
-        input[aria-label="ART number"]
-    ) input,
-    div[data-testid="stNumberInput"]:has(
-        input[aria-label="Days refilled"]
-    ) input {
-        border-radius: 0.5rem !important;
+    div[data-baseweb="input"] {
+        border-radius: 8px !important;
+    }
+    div[data-testid="stRadio"] {
+        padding-bottom: 0.35rem;
+    }
+    div[data-testid="stRadio"] div[role="radiogroup"] {
+        column-gap: 1.15rem;
+        row-gap: 0.35rem;
+    }
+    div[data-testid="stAlert"] {
+        border-radius: 8px;
     }
     div.stButton > button {
         width: 100%;
         min-height: 3rem;
-        border-radius: 10px;
+        border-radius: 8px;
         border: 1px solid #0d47a1;
         background: #1565c0;
         color: #ffffff !important;
@@ -814,21 +791,6 @@ if selected_district is None:
     st.stop()
 
 dfcred = dfcred[dfcred["DISTRICT"] == selected_district].copy()
-micro_clusters = dfcred["MICRO-CLUSTER"].dropna().unique()
-
-selected_micro_cluster = st.radio(
-    "MICRO-CLUSTER",
-    micro_clusters,
-    index=None,
-    horizontal=True,
-    key=f"micro_cluster_{selected_district}",
-)
-if selected_micro_cluster is None:
-    st.stop()
-
-dfcred = dfcred[
-    dfcred["MICRO-CLUSTER"] == selected_micro_cluster
-].copy()
 facilities = dfcred["FACILITY"].dropna().unique()
 
 selected_facility = st.radio(
@@ -836,7 +798,7 @@ selected_facility = st.radio(
     facilities,
     index=None,
     horizontal=True,
-    key=f"facility_{selected_district}_{selected_micro_cluster}",
+    key=f"facility_{selected_district}",
 )
 if selected_facility is None:
     st.stop()
@@ -860,15 +822,14 @@ if missing_reference_columns:
 
 client_form_version = st.session_state.get("client_form_version", 0)
 client_widget_prefix = (
-    f"{selected_district}_{selected_micro_cluster}_"
-    f"{selected_facility}_{client_form_version}"
+    f"{selected_district}_{selected_facility}_{client_form_version}"
 )
 success_message = st.session_state.pop("client_update_success", None)
 if success_message:
     st.success(success_message)
 
-input_columns = st.columns(4, gap="small")
-with input_columns[0]:
+art_columns = st.columns([1, 2], gap="medium")
+with art_columns[0]:
     entered_art_number = st.number_input(
         "ART number",
         min_value=1,
@@ -901,17 +862,14 @@ if not matching_art_numbers:
     st.stop()
 
 if len(matching_art_numbers) > 1:
-    st.info(
-        f"{len(matching_art_numbers)} similar ART numbers exist. "
-        "Select the one to update."
-    )
-    ART_NUMBER = st.radio(
-        "ART number to update",
-        matching_art_numbers,
-        index=None,
-        horizontal=True,
-        key=f"matching_art_{client_widget_prefix}_{entered_art_number}",
-    )
+    with art_columns[1]:
+        ART_NUMBER = st.radio(
+            "Which one?",
+            matching_art_numbers,
+            index=None,
+            horizontal=True,
+            key=f"matching_art_{client_widget_prefix}_{entered_art_number}",
+        )
     if ART_NUMBER is None:
         st.stop()
 else:
@@ -943,7 +901,8 @@ ip_address = str(ip_address).strip()
 USERNAME = str(USERNAME).strip()
 PASSWORD = str(PASSWORD).strip()
 
-with input_columns[1]:
+visit_columns = st.columns([1, 1.45, 1], gap="medium")
+with visit_columns[0]:
     last_encounter_date = st.date_input(
         "Last Encounter Date",
         value=None,
@@ -953,20 +912,32 @@ with input_columns[1]:
 if last_encounter_date is None:
     st.stop()
 
-with input_columns[2]:
-    refill_days = st.number_input(
-        "Days refilled",
-        min_value=1,
-        value=None,
-        step=1,
-        key=f"refill_days_{client_widget_prefix}",
+with visit_columns[1]:
+    refill_days_choice = st.radio(
+        "Days Dispensed",
+        ["30", "90", "180", "Other"],
+        index=None,
+        horizontal=True,
+        key=f"refill_days_choice_{client_widget_prefix}",
     )
+    if refill_days_choice == "Other":
+        refill_days = st.number_input(
+            "Other number of days",
+            min_value=1,
+            value=None,
+            step=1,
+            key=f"other_refill_days_{client_widget_prefix}",
+        )
+    elif refill_days_choice is not None:
+        refill_days = int(refill_days_choice)
+    else:
+        refill_days = None
 if refill_days is None:
     st.stop()
 
-with input_columns[3]:
+with visit_columns[2]:
     return_date_input = st.date_input(
-        "Return Date",
+        "Return Visit Date",
         value=None,
         format="DD/MM/YYYY",
         key=f"return_date_{client_widget_prefix}",
@@ -975,7 +946,7 @@ if return_date_input is None:
     st.stop()
 
 if return_date_input <= last_encounter_date:
-    st.warning("Return Date must be after Last Encounter Date.")
+    st.warning("Return Visit Date must be after Last Encounter Date.")
     st.stop()
 
 expected_return_date = last_encounter_date + timedelta(days=int(refill_days))
@@ -985,7 +956,7 @@ if abs(return_date_difference) >= 10:
     difference_direction = (
         "less" if return_date_difference < 0 else "more"
     )
-    st.info(
+    st.warning(
         f"This client was given {refill_days} pills. Return Date entered "
         f"is {difference_direction} than expected by "
         f"{abs(return_date_difference)} days."
@@ -1001,6 +972,16 @@ if abs(return_date_difference) >= 10:
         st.stop()
     if proceed_with_date_difference == "No":
         refresh_client_inputs()
+
+selected_regimen = st.radio(
+    "ART Regimen",
+    ART_REGIMENS,
+    index=None,
+    horizontal=True,
+    key=f"regimen_{client_widget_prefix}",
+)
+if selected_regimen is None:
+    st.stop()
 
 visit_date = last_encounter_date.strftime("%d/%m/%Y")
 return_date = return_date_input.strftime("%d/%m/%Y")
@@ -1054,7 +1035,7 @@ if st.button("Update Emr", key=f"launch_{client_widget_prefix}"):
                 select_hmis_return_date(page, return_date)
                 provider_name = select_first_hmis_provider(page)
                 open_hmis_medication_tab(page)
-                select_hmis_regimen(page)
+                select_hmis_regimen(page, selected_regimen)
                 fill_hmis_dispensing_and_save(page, int(refill_days))
                 print(
                     f"[hmis-form] Update completed for {ART_NUMBER}; "

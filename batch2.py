@@ -17,7 +17,14 @@ CREDENTIALS_FILE = Path("CREDENTIALS.csv")
 REFERENCE_DIR = Path("BATCH_REFERENCE")
 LOCATION_ID = "5"
 FORM_UUID = "12de5bc5-352e-4faf-9961-a2125085a75c"
-REGIMEN_VALUE = "164977"  # TDF-3TC-DTG
+ART_REGIMENS = [
+    "AZT-3TC-DTG",
+    "TDF-3TC-EFV",
+    "TDF-3TC-DTG",
+    "ABC-3TC-DTG",
+    "TDF-3TC-DRV/r",
+    "Other",
+]
 REQUEST_TIMEOUT = 45
 LAST_SUBMISSION_ERROR_FILE = Path("batch2_last_submission_error.html")
 VISIT_DATE_CONFLICT_MESSAGE = (
@@ -422,6 +429,19 @@ def first_provider(parser):
     )
 
 
+def select_value_for_label(parser, control_name, selected_label):
+    """Return the form option value matching a displayed select label."""
+    for option in parser.select_options.get(control_name, []):
+        value = FormParser.clean_attribute(option.get("value")) or ""
+        label = str(option.get("text") or "").strip()
+        if value and label == selected_label:
+            return value
+
+    raise EmrError(
+        f"The HMIS form does not contain the ART regimen {selected_label}."
+    )
+
+
 def submit_hmis_form(
     session,
     base_url,
@@ -432,6 +452,7 @@ def submit_hmis_form(
     visit_date,
     return_date,
     quantity,
+    regimen,
 ):
     return_url = (
         f"/openmrs/coreapps/patientdashboard/patientDashboard.page?"
@@ -457,6 +478,7 @@ def submit_hmis_form(
     if not parser.action:
         raise EmrError("The HMIS submission form was not found in the page.")
     provider_value, provider_name = first_provider(parser)
+    regimen_value = select_value_for_label(parser, "w589", regimen)
 
     controls = parser.controls
     updates = {
@@ -469,7 +491,7 @@ def submit_hmis_form(
         "w6": return_date,
         "w9": provider_value,
         "w16": "164972",
-        "w589": REGIMEN_VALUE,
+        "w589": regimen_value,
         "w593": quantity,
         "w595": quantity,
     }
@@ -522,7 +544,16 @@ def submit_hmis_form(
     )
 
 
-def update_client(base_url, username, password, art_number, visit_date, return_date, quantity):
+def update_client(
+    base_url,
+    username,
+    password,
+    art_number,
+    visit_date,
+    return_date,
+    quantity,
+    regimen,
+):
     session = login(base_url, username, password)
     patient_uuid, patient_id = find_exact_patient(session, base_url, art_number)
     visit_uuid, visit_id = create_visit(
@@ -538,6 +569,7 @@ def update_client(base_url, username, password, art_number, visit_date, return_d
         visit_date,
         return_date,
         quantity,
+        regimen,
     )
 
 
@@ -552,15 +584,42 @@ def refresh_client_inputs(success_message=None):
 st.markdown(
     """
     <style>
-    .block-container {max-width: 1100px; padding-top: 1.2rem;}
-    h1 {color: #17324d; font-size: 2rem !important;}
-    .stApp, .stApp p, .stApp label, .stApp span, .stApp input,
-    .stApp button, .stApp div[data-testid="stMarkdownContainer"] {
-        font-weight: 700 !important;
+    .stApp,
+    [data-testid="stAppViewContainer"] {
+        background-color: #f7fafc;
+    }
+    [data-testid="stHeader"] {
+        background-color: transparent;
+    }
+    .block-container {
+        max-width: 1180px;
+        padding-top: 1.25rem;
+        padding-bottom: 2rem;
+    }
+    h1 {
+        color: #17324d;
+        font-size: 2rem !important;
+        letter-spacing: 0;
+        margin-bottom: 1.25rem;
+    }
+    .stApp label, .stApp input, .stApp button {
+        font-weight: 650 !important;
+    }
+    div[data-testid="stNumberInput"]:has(
+        input[aria-label="ART number"]
+    ) {
+        max-width: 24rem;
     }
     div[data-testid="stNumberInput"] button {display: none !important;}
+    div[data-baseweb="input"] {border-radius: 8px !important;}
+    div[data-testid="stRadio"] {padding-bottom: 0.35rem;}
+    div[data-testid="stRadio"] div[role="radiogroup"] {
+        column-gap: 1.15rem;
+        row-gap: 0.35rem;
+    }
+    div[data-testid="stAlert"] {border-radius: 8px;}
     div.stButton > button {
-        width: 100%; min-height: 3rem; border-radius: 10px;
+        width: 100%; min-height: 3rem; border-radius: 8px;
         border: 1px solid #0d47a1; background: #1565c0;
         color: white !important; font-weight: 800 !important;
     }
@@ -577,7 +636,7 @@ if not CREDENTIALS_FILE.is_file():
     st.stop()
 dfcred = pd.read_csv(CREDENTIALS_FILE)
 dfcred = dfcred[dfcred["user"].notna()].copy()
-for column in ("DISTRICT", "MICRO-CLUSTER", "FACILITY"):
+for column in ("DISTRICT", "FACILITY"):
     dfcred[column] = dfcred[column].astype(str).str.strip()
 
 district = st.radio(
@@ -587,30 +646,17 @@ if district is None:
     st.stop()
 district_credentials = dfcred[dfcred["DISTRICT"] == district].copy()
 
-micro_cluster = st.radio(
-    "MICRO-CLUSTER",
-    district_credentials["MICRO-CLUSTER"].dropna().unique(),
-    index=None,
-    horizontal=True,
-    key=f"micro_{district}",
-)
-if micro_cluster is None:
-    st.stop()
-cluster_credentials = district_credentials[
-    district_credentials["MICRO-CLUSTER"] == micro_cluster
-].copy()
-
 facility = st.radio(
     "FACILITY",
-    cluster_credentials["FACILITY"].dropna().unique(),
+    district_credentials["FACILITY"].dropna().unique(),
     index=None,
     horizontal=True,
-    key=f"facility_{district}_{micro_cluster}",
+    key=f"facility_{district}",
 )
 if facility is None:
     st.stop()
-facility_credentials = cluster_credentials[
-    cluster_credentials["FACILITY"] == facility
+facility_credentials = district_credentials[
+    district_credentials["FACILITY"] == facility
 ].copy()
 if facility_credentials.empty:
     st.error("No credentials matched the selected Facility.")
@@ -627,13 +673,13 @@ if missing:
     st.stop()
 
 version = st.session_state.get("client_form_version", 0)
-prefix = f"{district}_{micro_cluster}_{facility}_{version}"
+prefix = f"{district}_{facility}_{version}"
 success = st.session_state.pop("client_update_success", None)
 if success:
     st.success(success)
 
-columns = st.columns(4, gap="small")
-with columns[0]:
+art_columns = st.columns([1, 2], gap="medium")
+with art_columns[0]:
     entered_art = st.number_input(
         "ART number", min_value=1, value=None, step=1, key=f"art_{prefix}"
     )
@@ -650,14 +696,14 @@ if not art_numbers:
     st.error(f"ART number {entered_art} has no full Art value in {reference_file}.")
     st.stop()
 if len(art_numbers) > 1:
-    st.info(f"{len(art_numbers)} similar ART numbers exist. Select the one to update.")
-    art_number = st.radio(
-        "ART number to update",
-        art_numbers,
-        index=None,
-        horizontal=True,
-        key=f"matching_{prefix}_{entered_art}",
-    )
+    with art_columns[1]:
+        art_number = st.radio(
+            "Which one?",
+            art_numbers,
+            index=None,
+            horizontal=True,
+            key=f"matching_{prefix}_{entered_art}",
+        )
     if art_number is None:
         st.stop()
 else:
@@ -671,7 +717,8 @@ base_url = f"http://{str(row['ip']).strip()}:8081/openmrs"
 username = str(row["user"]).strip()
 password = str(row["password"]).strip()
 
-with columns[1]:
+visit_columns = st.columns([1, 1.45, 1], gap="medium")
+with visit_columns[0]:
     last_encounter = st.date_input(
         "Last Encounter Date",
         value=None,
@@ -684,27 +731,49 @@ if last_encounter is None:
 if last_encounter > date.today():
     st.warning("Last Encounter Date cannot be in the future.")
     st.stop()
-with columns[2]:
-    refill_days = st.number_input(
-        "Days refilled", min_value=1, value=None, step=1, key=f"days_{prefix}"
+
+with visit_columns[1]:
+    refill_days_choice = st.radio(
+        "Days Dispensed",
+        ["30", "90", "180", "Other"],
+        index=None,
+        horizontal=True,
+        key=f"days_choice_{prefix}",
     )
+    if refill_days_choice == "Other":
+        refill_days = st.number_input(
+            "Other number of days",
+            min_value=1,
+            value=None,
+            step=1,
+            key=f"other_days_{prefix}",
+        )
+    elif refill_days_choice is not None:
+        refill_days = int(refill_days_choice)
+    else:
+        refill_days = None
 if refill_days is None:
     st.stop()
-with columns[3]:
+
+with visit_columns[2]:
     return_date = st.date_input(
-        "Return Date", value=None, format="DD/MM/YYYY", key=f"return_{prefix}"
+        "Return Visit Date",
+        value=None,
+        format="DD/MM/YYYY",
+        key=f"return_{prefix}",
     )
 if return_date is None:
     st.stop()
+
 if return_date <= last_encounter:
-    st.warning("Return Date must be after Last Encounter Date.")
+    st.warning("Return Visit Date must be after Last Encounter Date.")
     st.stop()
 
 expected = last_encounter + timedelta(days=int(refill_days))
 difference = (return_date - expected).days
 if abs(difference) >= 10:
     direction = "less" if difference < 0 else "more"
-    st.info(
+    st.warning(
         f"This client was given {refill_days} pills. Return Date entered is "
         f"{direction} than expected by {abs(difference)} days."
     )
@@ -720,6 +789,16 @@ if abs(difference) >= 10:
     if proceed == "No":
         refresh_client_inputs()
 
+regimen = st.radio(
+    "ART Regimen",
+    ART_REGIMENS,
+    index=None,
+    horizontal=True,
+    key=f"regimen_{prefix}",
+)
+if regimen is None:
+    st.stop()
+
 if st.button("Update Emr", key=f"update_{prefix}"):
     try:
         update_client(
@@ -730,6 +809,7 @@ if st.button("Update Emr", key=f"update_{prefix}"):
             last_encounter.isoformat(),
             return_date.isoformat(),
             int(refill_days),
+            regimen,
         )
         refresh_client_inputs(
             f"SUCCESS: {art_number} was updated successfully. Update another client."
