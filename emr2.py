@@ -10,6 +10,7 @@ import re
 from html.parser import HTMLParser
 from pathlib import Path
 
+
 # Configuration
 EXPORT_NAME = "MONTHLY"
 BASE_URL = "http://10.3.1.5:8081/openmrs"
