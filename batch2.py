@@ -45,10 +45,6 @@ class ArtNumberNotFoundInEmrError(EmrError):
     pass
 
 
-class ArtNumberMismatchError(EmrError):
-    pass
-
-
 class VisitDateConflictError(EmrError):
     pass
 
@@ -234,10 +230,6 @@ def login(base_url, username, password):
     return session
 
 
-def normalize_art_identifier(value):
-    return re.sub(r"[^a-z0-9]", "", str(value).casefold())
-
-
 def find_exact_patient(session, base_url, art_number):
     response = request(
         session,
@@ -260,48 +252,14 @@ def find_exact_patient(session, base_url, art_number):
             f"ART number {art_number} was not found in EMR."
         )
 
-    wanted = normalize_art_identifier(art_number)
-    exact = []
-    returned_identifiers = []
-    for patient in results:
-        identifiers = patient.get("patientIdentifier") or []
-        if isinstance(identifiers, dict):
-            identifiers = [identifiers]
-        values = [
-            str(item.get("identifier", "")).strip()
-            for item in identifiers
-        ]
-        returned_identifiers.extend(value for value in values if value)
-        if wanted in {
-            normalize_art_identifier(value) for value in values
-        }:
-            exact.append(patient)
-    if not exact:
-        found_identifiers = list(dict.fromkeys(returned_identifiers))
-        print(
-            f"[PATIENT MATCH FAILED] requested={art_number}; "
-            f"returned={found_identifiers}",
-            flush=True,
-        )
-        if not found_identifiers:
-            print(
-                f"[PATIENT SEARCH RAW RESULTS] {results}",
-                flush=True,
-            )
-        found_text = ", ".join(found_identifiers) or "no identifier value"
-        raise ArtNumberMismatchError(
-            f"Expected exact ART number {art_number}, but no exact result "
-            f"was found. OpenMRS returned: {found_text}. "
-            "No patient was updated."
-        )
-    if len(exact) > 1:
-        raise ArtNumberMismatchError(
-            f"More than one patient matched ART number {art_number}. "
-            "No patient was updated."
-        )
-    patient = exact[0]
+    patient = results[0]
+    print(
+        f"[PATIENT SEARCH] requested={art_number}; "
+        f"results={len(results)}; selected_uuid={patient.get('uuid')}",
+        flush=True,
+    )
     if not patient.get("uuid") or patient.get("patientId") is None:
-        raise EmrError("The exact patient result did not contain its IDs.")
+        raise EmrError("The selected patient result did not contain its IDs.")
     return str(patient["uuid"]), str(patient["patientId"])
 
 
@@ -853,7 +811,7 @@ if st.button("Update Emr", key=f"update_{prefix}"):
     except VisitDateConflictError as exc:
         log_update_failure(art_number, exc)
         st.info(f"This date was already updated for client {art_number}.")
-    except (ArtNumberNotFoundInEmrError, ArtNumberMismatchError) as exc:
+    except ArtNumberNotFoundInEmrError as exc:
         log_update_failure(art_number, exc)
         st.info(str(exc))
     except EmrError as exc:
