@@ -526,6 +526,21 @@ def update_client(
         regimen,
     )
 
+st.markdown(
+    """
+    <style>
+    div.stButton > button {
+        width: 100%; min-height: 3rem; border-radius: 8px;
+        border: 1px solid #0d47a1; background: #1565c0;
+        color: white !important; font-weight: 800 !important;
+    }
+    div.stButton > button:hover {
+        background: #0d47a1; color: white !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 st.title("EMR BATCH UPDATE TOOL")
 
@@ -891,7 +906,7 @@ dfemr = dfemr[
 
 st.write(f"READY TO UPDATE: {dfemr.shape[0]}")
 
-if st.button("UPDATE EMR", type="primary"):
+if st.button("BATCH UPLOAD", type="primary"):
     failed_rows = []
     successful_updates = 0
     total_updates = dfemr.shape[0]

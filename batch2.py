@@ -17,14 +17,6 @@ CREDENTIALS_FILE = Path("CREDENTIALS.csv")
 REFERENCE_DIR = Path("BATCH_REFERENCE")
 LOCATION_ID = "5"
 FORM_UUID = "12de5bc5-352e-4faf-9961-a2125085a75c"
-ART_REGIMENS = [
-    "AZT-3TC-DTG",
-    "TDF-3TC-EFV",
-    "TDF-3TC-DTG",
-    "ABC-3TC-DTG",
-    "TDF-3TC-DRV/r",
-    "Other",
-]
 REQUEST_TIMEOUT = 45
 LAST_SUBMISSION_ERROR_FILE = Path("batch2_last_submission_error.html")
 VISIT_DATE_CONFLICT_MESSAGE = (
@@ -667,10 +659,13 @@ if not reference_file.is_file():
     st.error(f"No reference dataset was found for {facility}: {reference_file}")
     st.stop()
 dfref = pd.read_csv(reference_file)
-missing = {"ART", "Art"} - set(dfref.columns)
+missing = {"Art", "ARVS"} - set(dfref.columns)
 if missing:
     st.error(f"{reference_file} is missing: {', '.join(sorted(missing))}.")
     st.stop()
+dfref["ART"] = (
+    dfref["Art"].astype(str).str.replace("[^0-9]", "", regex=True)
+)
 
 version = st.session_state.get("client_form_version", 0)
 prefix = f"{district}_{facility}_{version}"
@@ -686,7 +681,7 @@ with art_columns[0]:
 if entered_art is None:
     st.stop()
 
-matches = dfref[dfref["ART"] == entered_art].copy()
+matches = dfref[dfref["ART"] == str(int(entered_art))].copy()
 if matches.empty:
     st.info(f"ART NUMBER {entered_art} NOT FOUND for {facility}.")
     st.stop()
@@ -708,6 +703,17 @@ if len(art_numbers) > 1:
         st.stop()
 else:
     art_number = art_numbers[0]
+
+selected_rows = matches[
+    matches["Art"].astype(str).str.strip() == art_number
+]
+regimens = selected_rows["ARVS"].dropna().astype(str).str.strip()
+regimens = regimens[regimens != ""]
+regimen = (
+    regimens.iloc[0].replace("/", "-")
+    if not regimens.empty
+    else "TDF-3TC-DTG"
+)
 
 row = facility_credentials.iloc[0]
 if any(pd.isna(row.get(name)) or not str(row.get(name)).strip() for name in ("ip", "user", "password")):
@@ -788,16 +794,6 @@ if abs(difference) >= 10:
         st.stop()
     if proceed == "No":
         refresh_client_inputs()
-
-regimen = st.radio(
-    "ART Regimen",
-    ART_REGIMENS,
-    index=None,
-    horizontal=True,
-    key=f"regimen_{prefix}",
-)
-if regimen is None:
-    st.stop()
 
 if st.button("Update Emr", key=f"update_{prefix}"):
     try:
