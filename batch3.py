@@ -268,14 +268,22 @@ def find_exact_patient(session, base_url, art_number):
         }:
             exact.append(patient)
     if not exact:
+        found_identifiers = list(dict.fromkeys(returned_identifiers))
         print(
             f"[PATIENT MATCH FAILED] requested={art_number}; "
-            f"returned={returned_identifiers}",
+            f"returned={found_identifiers}",
             flush=True,
         )
+        if not found_identifiers:
+            print(
+                f"[PATIENT SEARCH RAW RESULTS] {results}",
+                flush=True,
+            )
+        found_text = ", ".join(found_identifiers) or "no identifier value"
         raise ArtNumberMismatchError(
             f"Expected exact ART number {art_number}, but no exact result "
-            "was found. No patient was updated."
+            f"was found. OpenMRS returned: {found_text}. "
+            "No patient was updated."
         )
     if len(exact) > 1:
         raise ArtNumberMismatchError(
