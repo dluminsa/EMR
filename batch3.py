@@ -225,6 +225,10 @@ def login(base_url, username, password):
     return session
 
 
+def normalize_art_identifier(value):
+    return re.sub(r"[^a-z0-9]", "", str(value).casefold())
+
+
 def find_exact_patient(session, base_url, art_number):
     response = request(
         session,
@@ -247,22 +251,36 @@ def find_exact_patient(session, base_url, art_number):
             f"ART number {art_number} was not found in EMR."
         )
 
-    wanted = art_number.strip().casefold()
+    wanted = normalize_art_identifier(art_number)
     exact = []
+    returned_identifiers = []
     for patient in results:
         identifiers = patient.get("patientIdentifier") or []
         if isinstance(identifiers, dict):
             identifiers = [identifiers]
         values = [
-            str(item.get("identifier", "")).strip().casefold()
+            str(item.get("identifier", "")).strip()
             for item in identifiers
         ]
-        if wanted in values:
+        returned_identifiers.extend(value for value in values if value)
+        if wanted in {
+            normalize_art_identifier(value) for value in values
+        }:
             exact.append(patient)
     if not exact:
+        print(
+            f"[PATIENT MATCH FAILED] requested={art_number}; "
+            f"returned={returned_identifiers}",
+            flush=True,
+        )
         raise ArtNumberMismatchError(
             f"Expected exact ART number {art_number}, but no exact result "
             "was found. No patient was updated."
+        )
+    if len(exact) > 1:
+        raise ArtNumberMismatchError(
+            f"More than one patient matched ART number {art_number}. "
+            "No patient was updated."
         )
     patient = exact[0]
     if not patient.get("uuid") or patient.get("patientId") is None:
