@@ -573,6 +573,10 @@ def refresh_client_inputs(success_message=None):
     st.rerun()
 
 
+def log_update_failure(art_number, error):
+    print(f"[EMR UPDATE FAILED] ART={art_number}: {error}", flush=True)
+
+
 st.markdown(
     """
     <style>
@@ -594,8 +598,8 @@ st.markdown(
         letter-spacing: 0;
         margin-bottom: 1.25rem;
     }
-    .stApp label, .stApp input, .stApp button {
-        font-weight: 650 !important;
+    .stApp, .stApp * {
+        font-weight: 700 !important;
     }
     div[data-testid="stNumberInput"]:has(
         input[aria-label="ART number"]
@@ -807,22 +811,28 @@ if st.button("Update Emr", key=f"update_{prefix}"):
             int(refill_days),
             regimen,
         )
+        print(f"[EMR UPDATE SUCCESS] ART={art_number}", flush=True)
         refresh_client_inputs(
             f"SUCCESS: {art_number} was updated successfully. Update another client."
         )
-    except LoginUrlError:
+    except LoginUrlError as exc:
+        log_update_failure(art_number, exc)
         st.info("The facility EMR login address is incorrect or unreachable.")
-    except InvalidCredentialsError:
+    except InvalidCredentialsError as exc:
+        log_update_failure(art_number, exc)
         st.info("Invalid username/password. Please try again.")
-    except FacilityAccessError:
+    except FacilityAccessError as exc:
+        log_update_failure(art_number, exc)
         st.info("Credentials provided do not have access to update facility EMR.")
-    except VisitDateConflictError:
+    except VisitDateConflictError as exc:
+        log_update_failure(art_number, exc)
         st.info(f"This date was already updated for client {art_number}.")
     except (ArtNumberNotFoundInEmrError, ArtNumberMismatchError) as exc:
+        log_update_failure(art_number, exc)
         st.info(str(exc))
     except EmrError as exc:
-        print(f"[emr-error] {exc}", flush=True)
+        log_update_failure(art_number, exc)
         st.error(str(exc))
     except Exception as exc:
-        print(f"[unexpected-error] {exc}", flush=True)
+        log_update_failure(art_number, exc)
         st.error("An unexpected error occurred while updating the client.")

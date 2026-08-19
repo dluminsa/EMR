@@ -529,6 +529,9 @@ def update_client(
 st.markdown(
     """
     <style>
+    .stApp, .stApp * {
+        font-weight: 700 !important;
+    }
     div.stButton > button {
         width: 100%; min-height: 3rem; border-radius: 8px;
         border: 1px solid #0d47a1; background: #1565c0;
@@ -938,6 +941,10 @@ if st.button("BATCH UPLOAD", type="primary"):
                 str(client['ARVS']).strip(),
             )
             successful_updates += 1
+            print(
+                f"[BATCH UPDATE SUCCESS] ART={art_number}",
+                flush=True,
+            )
         except Exception as exc:
             print(
                 f"[BATCH UPDATE FAILED] ART={art_number}: {exc}",
