@@ -31,6 +31,58 @@ VISIT_DATE_CONFLICT_MESSAGE = (
 )
 
 
+def parse_eregister_dates(values):
+    """Parse E-register dates without swapping ISO months and days."""
+    text = values.astype("string").str.strip()
+    parsed = pd.Series(pd.NaT, index=values.index, dtype="datetime64[ns]")
+
+    # Excel date/time serials can appear when users upload an untouched export.
+    numeric = pd.to_numeric(text, errors="coerce")
+    excel_serial = numeric.between(20_000, 80_000)
+    parsed.loc[excel_serial] = pd.to_datetime(
+        numeric.loc[excel_serial],
+        unit="D",
+        origin="1899-12-30",
+        errors="coerce",
+    )
+
+    # `dayfirst=True` corrupts ambiguous ISO values; e.g. 2026-08-07 can
+    # become 2026-07-08. Parse year-first values separately.
+    iso_date = (
+        text.str.match(
+            r"^\d{4}[-/]\d{1,2}[-/]\d{1,2}(?:[T\s]|$)",
+            na=False,
+        )
+        & parsed.isna()
+    )
+    parsed.loc[iso_date] = pd.to_datetime(
+        text.loc[iso_date],
+        format="mixed",
+        yearfirst=True,
+        errors="coerce",
+    )
+
+    # Values containing only a time have already lost their calendar date and
+    # must not be silently converted to today's date.
+    time_only = text.str.match(
+        r"^\d{1,2}:\d{2}(?::\d{2})?(?:\.\d+)?$",
+        na=False,
+    )
+    day_first_date = (
+        parsed.isna()
+        & text.notna()
+        & text.ne("")
+        & ~time_only
+    )
+    parsed.loc[day_first_date] = pd.to_datetime(
+        text.loc[day_first_date],
+        format="mixed",
+        dayfirst=True,
+        errors="coerce",
+    )
+    return parsed
+
+
 class EmrError(RuntimeError):
     pass
 
@@ -583,16 +635,25 @@ password = str(row["password"]).strip()
 
 reference_file = REFERENCE_DIR / f"{facility}.csv"
 if not reference_file.is_file():
-    st.error(
-        f"No reference dataset was found for {facility}: {reference_file}"
+    st.warning(
+        f"{facility} was rejected: no reference CSV was found at "
+        f"{reference_file}."
     )
     st.stop()
 
-dfref = pd.read_csv(reference_file)
+try:
+    dfref = pd.read_csv(reference_file)
+except (OSError, UnicodeError, pd.errors.EmptyDataError, pd.errors.ParserError) as exc:
+    st.warning(
+        f"{facility} was rejected: its reference CSV could not be read. {exc}"
+    )
+    st.stop()
+
 missing_reference_columns = {"Art", "ARVS"} - set(dfref.columns)
 if missing_reference_columns:
-    st.error(
-        f"{reference_file} is missing: "
+    st.warning(
+        f"{facility} was rejected: {reference_file} must contain both exact "
+        f"column names Art and ARVS. Missing: "
         f"{', '.join(sorted(missing_reference_columns))}."
     )
     st.stop()
@@ -611,8 +672,40 @@ a = df.shape[0]
 
 df = df[['MR - First name', 'MR - Surname', 'MR - Sex' ,'HIV/ART-Next Appointment date', 'Last updated on','ART: Art Number','HIV-ART Regimen - No. of days dispensed','Service Type']]
 
-df[['HIV/ART-Next Appointment date', 'Last updated on']] = (df[['HIV/ART-Next Appointment date', 'Last updated on']]
-                                                            .apply(lambda col: pd.to_datetime(col,format='mixed',dayfirst=True).dt.date))
+date_columns = ['HIV/ART-Next Appointment date', 'Last updated on']
+raw_dates = df[date_columns].copy()
+parsed_dates = raw_dates.apply(parse_eregister_dates)
+raw_date_present = raw_dates.apply(
+    lambda col: col.astype('string').str.strip().notna()
+    & col.astype('string').str.strip().ne('')
+)
+invalid_dates = raw_date_present & parsed_dates.isna()
+missing_last_updated = parsed_dates['Last updated on'].isna()
+rejected_date_rows = invalid_dates.any(axis=1) | missing_last_updated
+
+if rejected_date_rows.any():
+    invalid_rows = df.loc[rejected_date_rows].copy()
+    invalid_rows['DATE ERROR'] = np.where(
+        missing_last_updated.loc[rejected_date_rows],
+        'MISSING OR INVALID LAST UPDATED DATE',
+        'INVALID NEXT APPOINTMENT DATE',
+    )
+    st.warning(
+        f"{invalid_rows.shape[0]} row(s) contain a missing or invalid "
+        "required date. Upload the original untouched E-register CSV; do "
+        "not open and re-save it while Excel displays values such as "
+        "49:19.6 or 00:00.0. A blank next-appointment date is allowed only "
+        "when it is genuinely blank and days dispensed can generate it."
+    )
+    st.download_button(
+        "DOWNLOAD INVALID DATE ROWS",
+        data=invalid_rows.to_csv(index=False).encode('utf-8'),
+        file_name='invalid_date_rows.csv',
+        mime='text/csv',
+    )
+    st.stop()
+
+df[date_columns] = parsed_dates.apply(lambda col: col.dt.date)
 
 dfart = df[df['ART: Art Number'].isnull()].copy()
 
@@ -637,19 +730,6 @@ dfart['ART_STATUS'] = 'NO ART NUMBER'
 
 no_art = dfart.shape[0]
 
-dfdup = dfartn[dfartn['ART'].duplicated()].copy()
-
-dfdup['DUP STATUS'] = 'DUPLICATED IN E-REGISTER'
-
-dup_ereg = dfdup.shape[0]
-
-dfnodup = dfartn[~dfartn['ART'].duplicated()].copy()
-
-if dfdup.shape[0]>0:
-    dfartn = pd.concat([dfdup, dfnodup])
-else:
-    dfartn = dfnodup
-
 if dfart.shape[0]>0:
     df = pd.concat([dfart, dfartn])
 else:
@@ -657,48 +737,31 @@ else:
 
 df['HIV-ART Regimen - No. of days dispensed'] = pd.to_numeric(df['HIV-ART Regimen - No. of days dispensed'], errors = 'coerce')
 
-dfnopills = df[df['HIV-ART Regimen - No. of days dispensed'].isnull()].copy()#NO PILLS 
+days_column = 'HIV-ART Regimen - No. of days dispensed'
+next_appointment_column = 'HIV/ART-Next Appointment date'
 
-dfpills = df[df['HIV-ART Regimen - No. of days dispensed'].notnull()].copy() #HAS PILLS
+missing_days = df[days_column].isna()
+missing_next_appointment = df[next_appointment_column].isna()
 
-dfnoday = dfnopills[((dfnopills['HIV-ART Regimen - No. of days dispensed'].isnull()) & (dfnopills['HIV/ART-Next Appointment date'].isnull()))].copy()
-
-dfday = dfnopills[((dfnopills['HIV-ART Regimen - No. of days dispensed'].isnull()) & (dfnopills['HIV/ART-Next Appointment date'].notnull()))].copy()
+# Rule 1: days are missing but both dates exist. Derive days dispensed.
+derive_days = missing_days & ~missing_next_appointment
+dfday = df.loc[derive_days].copy()
 
 dfday = dfday.drop(columns=['HIV-ART Regimen - No. of days dispensed'])
 
 dfday[['HIV/ART-Next Appointment date', 'Last updated on']] = (dfday[['HIV/ART-Next Appointment date', 'Last updated on']]
-                                                            .apply(lambda col: pd.to_datetime(col,format='mixed',dayfirst=True)))
+                                                            .apply(parse_eregister_dates))
 
-dfday['HIV-ART Regimen - No. of days dispensed'] = (
-    pd.to_datetime(
-        dfday['HIV/ART-Next Appointment date'],
-        errors='coerce',
-    )
-    - pd.to_datetime(
-        dfday['Last updated on'],
-        errors='coerce',
-    )
-) / pd.Timedelta(days=1)
+dfday['HIV-ART Regimen - No. of days dispensed'] = ( dfday['HIV/ART-Next Appointment date'] - dfday['Last updated on']).dt.days
 
-dfnoday['DAYS_STATUS'] = 'MISSING DAYS DISPENSED'
+df.loc[dfday.index, days_column] = dfday[days_column]
 
-dfnoday = dfnoday.drop(columns =['HIV/ART-Next Appointment date','HIV-ART Regimen - No. of days dispensed'])
-
-#dfa = pd.concat([dfday, dfnoday])
-
-dfs = [dfx for dfx in [dfday, dfnoday] if not df.empty]
-
-
-dfa = pd.concat(dfs, ignore_index=True)
-
-dfnodate = dfpills[dfpills['HIV/ART-Next Appointment date'].isnull()].copy()
-
-dfdate = dfpills[dfpills['HIV/ART-Next Appointment date'].notna()].copy()
-
+# Rule 2: the next appointment is missing but days dispensed exist. Derive it.
+derive_next_appointment = ~missing_days & missing_next_appointment
+dfnodate = df.loc[derive_next_appointment].copy()
 dfnodate = dfnodate.drop(columns =['HIV/ART-Next Appointment date'])
 
-dfnodate['Last updated on'] = pd.to_datetime(dfnodate['Last updated on'],format='mixed',dayfirst=True)
+dfnodate['Last updated on'] = parse_eregister_dates(dfnodate['Last updated on'])
 
 dfnodate['HIV-ART Regimen - No. of days dispensed'] = pd.to_numeric(dfnodate['HIV-ART Regimen - No. of days dispensed'], errors='coerce')
 
@@ -706,25 +769,22 @@ dfnodate['days'] = pd.to_timedelta(dfnodate['HIV-ART Regimen - No. of days dispe
 
 dfnodate['HIV/ART-Next Appointment date'] = dfnodate['Last updated on'] + dfnodate['days']
 
-#dfb = pd.concat([dfdate, dfnodate])
+df.loc[dfnodate.index, next_appointment_column] = dfnodate[
+    next_appointment_column
+]
+df.loc[dfnodate.index, 'days'] = dfnodate['days']
 
-dfs = [dfx for dfx in [dfdate, dfnodate] if not df.empty]
-
-
-dfb = pd.concat(dfs, ignore_index=True)
-
-#df = pd.concat([dfa, dfb])
-
-dfs = [dfx for dfx in [dfa, dfb] if not df.empty]
-
-
-df = pd.concat(dfs, ignore_index=True)
+# Rule 3: only rows missing both values are flagged for manual correction.
+missing_days_and_next_appointment = missing_days & missing_next_appointment
+dfnoday = df.loc[missing_days_and_next_appointment].copy()
+df.loc[
+    missing_days_and_next_appointment,
+    'DAYS_STATUS',
+] = 'MISSING DAYS DISPENSED AND NEXT APPOINTMENT DATE'
 
 def pillcheck(days):
     if pd.isna(days):
         return None
-    if days < 0:
-        return 'NEXT APPT < LAST ENCOUNTER, CHECK'
     if 0 <= days < 30:
         return 'FEW DAYS DISPENSED, CHECK'
     if 30 <= days <= 185:
@@ -740,16 +800,15 @@ df['DAYS ERROR']  = df['HIV-ART Regimen - No. of days dispensed'].apply(pillchec
 dfmany = df[df['DAYS ERROR']=='MANY DAYS DISPENSED, CHECK'].copy()
 
 dfew = df[df['DAYS ERROR']== 'FEW DAYS DISPENSED, CHECK'].copy()
-dfqn = df[df['DAYS ERROR']== 'NEXT APPT < LAST ENCOUNTER, CHECK'].copy()
-dfcorrect = df[~df['DAYS ERROR'].isin(['MANY DAYS DISPENSED, CHECK','FEW DAYS DISPENSED, CHECK', 'NEXT APPT < LAST ENCOUNTER, CHECK'])].copy()
+dfcorrect = df[~df['DAYS ERROR'].isin(['MANY DAYS DISPENSED, CHECK','FEW DAYS DISPENSED, CHECK'])].copy()
 
 df = pd.concat(
-    [dfew, dfmany, dfqn, dfcorrect],
+    [dfew, dfmany, dfcorrect],
     ignore_index=True,
 )
 cols = ['MR - First name', 'MR - Surname', 'MR - Sex','Service Type','ART: Art Number','ART',
          'Last updated on','HIV-ART Regimen - No. of days dispensed', 'HIV/ART-Next Appointment date','ART_STATUS',  
-         'DUP STATUS','DAYS_STATUS', 'days','DAYS ERROR']
+         'DAYS_STATUS', 'days','DAYS ERROR']
 seta = set(df.columns)
 setb = set(cols)
 setc = setb-seta
@@ -760,17 +819,12 @@ for date_column in (
     'Last updated on',
     'HIV/ART-Next Appointment date',
 ):
-    df[date_column] = pd.to_datetime(
-        df[date_column],
-        format='mixed',
-        dayfirst=True,
-        errors='coerce',
+    df[date_column] = parse_eregister_dates(
+        df[date_column]
     ).dt.strftime('%d/%m/%Y')
 
 checkd = {'NO ART NOs': dfart.shape[0],
-          'DUPLICATED IN E-REG': dfdup.shape[0],
-          'NEXT APPT < LAST ENCOUNTER, CHECK': dfqn.shape[0],
-          'NO DAYS DISPENSED' : dfnoday.shape[0],
+          'NO DAYS DISPENSED AND NO NEXT APPOINTMENT': dfnoday.shape[0],
           'FEW DAYS DISPENSED' : dfew.shape[0],
           'TOO MANY DAYS DISPENSED': dfmany.shape[0]
 }
@@ -790,7 +844,7 @@ if has_data_issues:
     )
     st.stop()
 
-b =df.shape[0] + dfmany.shape[0] + dfew.shape[0]+dfqn.shape[0] 
+b =df.shape[0] + dfmany.shape[0] + dfew.shape[0]
 
 
 
@@ -809,12 +863,7 @@ df = df.rename(columns = {'HIV/ART-Next Appointment date':'Return Visit Date', '
                           'HIV-ART Regimen - No. of days dispensed': 'Days Dispensed'})
 
 for date_column in ('Return Visit Date', 'Last Encounter Date'):
-    df[date_column] = pd.to_datetime(
-        df[date_column],
-        format='mixed',
-        dayfirst=True,
-        errors='coerce',
-    )
+    df[date_column] = parse_eregister_dates(df[date_column])
 
 df['Rday'] = df['Return Visit Date'].dt.day
 
@@ -845,8 +894,6 @@ df2 = df2[df2['ART'].notna()].copy()
 df = df[df['ART'].notna()].copy()
 
 df['ART'] = pd.to_numeric(df['ART'], errors = 'coerce')
-
-df = df.drop_duplicates(subset= ['ART'], keep='first') ####DUPS WON'T PASS ANYWAY, REMOVE LATER
 
 df['ART'] = pd.to_numeric(df['ART'], errors = 'coerce')
 
