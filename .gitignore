@@ -3,5 +3,9 @@
 __pycache__/
 *.py[cod]
 *.csv
+!BATCH_REFERENCE/
+!BATCH_REFERENCE/*.csv
+!FLET/BATCH_REFERENCE/
+!FLET/BATCH_REFERENCE/*.csv
 .env
 .env.*

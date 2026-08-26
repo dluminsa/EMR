@@ -1,0 +1,7575 @@
+{
+  "schema_version": 1,
+  "kind": "facility_reference",
+  "source_file": "LUKAYA.csv",
+  "columns": [
+    "Art",
+    "ARVS"
+  ],
+  "records": [
+    {
+      "Art": "LKY 002",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY 114",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY 246",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY 171",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY073",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY 070",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY 001",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY 013",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY 030",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY 005",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY 012",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY 154",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY 182",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY 122",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY 293",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY 243",
+      "ARVS": "TDF-FTC-NVP"
+    },
+    {
+      "Art": "LKY 582",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY 198",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY 249",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY133",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY178",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY143",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY189",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY146",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY172",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY102",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY141",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY142",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY116",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY147",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY144",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY140",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY145",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY130",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY136",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY120",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY113",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY135",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY174",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY132",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY100",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY138",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY134",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY124",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY127",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY199",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY297",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY195",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY231",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY175",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY254",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY289",
+      "ARVS": "TDF-3TC-NVP"
+    },
+    {
+      "Art": "LKY158",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY196",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY153",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY276",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY166",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY266",
+      "ARVS": "TDF-FTC-EFV"
+    },
+    {
+      "Art": "LKY269",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY292",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY251",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY307",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY228",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY310",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY201",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY151",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY240",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY235",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY250",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY176",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY290",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY152",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY041",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY194",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY161",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY247",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY224",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY204",
+      "ARVS": "AZT-3TC-EFV"
+    },
+    {
+      "Art": "LKY296",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY260",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY159",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY162",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY284",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY275",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY271",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY255",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY230",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY190",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY261",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY257",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY115",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY273",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY274",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY267",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY259",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY168",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY091",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY312",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY309",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY308",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY306",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY170",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY216",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY241",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY223",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY208",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY248",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY202",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY213",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY217",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY252",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY245",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY265",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY157",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY177",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY167",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY294",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY221",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY278",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY234",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY220",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY103",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY226",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY233",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY173",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY215",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY264",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY197",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY163",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY205",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY253",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY164",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY118",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY192",
+      "ARVS": "AZT-3TC-EFV"
+    },
+    {
+      "Art": "LKY193",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY304",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY137",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY303",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY280",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY225",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY268",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY299",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY025",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY169",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY006",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY272",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY084",
+      "ARVS": "AZT-3TC-EFV"
+    },
+    {
+      "Art": "LKY236",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY258",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY038",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY139",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY104",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY035",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY165",
+      "ARVS": "TDF-FTC-NVP"
+    },
+    {
+      "Art": "LKY242",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY108",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY097",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY270",
+      "ARVS": "AZT-3TC-ATV/r"
+    },
+    {
+      "Art": "LKY282",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "LKY206",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY281",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY285",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY188",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY062",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY148",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY015",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY022",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY105",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY088",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY305",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY123",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY302",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY128",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY046",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY214",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY121",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY209",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY256",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY277",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY210",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY004",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY286",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY311",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY227",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY181",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY288",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY040",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY283",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY051",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY034",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY131",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY207",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY065",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY107",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY044",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY287",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY071",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY067",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY179",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY279",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY262",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY109",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY129",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY101",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY047",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY029",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY039",
+      "ARVS": "AZT-3TC-EFV"
+    },
+    {
+      "Art": "LKY080",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY110",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY200",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY212",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY054",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY111",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY155",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY014",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY222",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY160",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY018",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY068",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY003",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY049",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY295",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY087",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY074",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY033",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY048",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY061",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY126",
+      "ARVS": "AZT-3TC-EFV"
+    },
+    {
+      "Art": "LKY037",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY030",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY055",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY057",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY094",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY083",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY052",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY063",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY092",
+      "ARVS": "AZT-3TC-EFV"
+    },
+    {
+      "Art": "LKY095",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY010",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY076",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY059",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY089",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY011",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY119",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY086",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "LKY020",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY056",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY112",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY017",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY060",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY043",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY050",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY082",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY019",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY032",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY007",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY079",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY069",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY098",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY023",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY106",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY096",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY099",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY085",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY090",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY077",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY027",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY028",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY026",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY075",
+      "ARVS": "AZT-3TC-EFV"
+    },
+    {
+      "Art": "LKY078",
+      "ARVS": "AZT-3TC-EFV"
+    },
+    {
+      "Art": "LKY093",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY008",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY298",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY081",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY203",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY180",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY064",
+      "ARVS": "ABC/3TC/DTG"
+    },
+    {
+      "Art": "LKY072",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY232",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY066",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY053",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY021",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY333",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY330",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY319",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY321",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY322",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY316",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY332",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY338",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY339",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY323",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky325",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY340",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY314",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY334",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY341",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY 341",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY344",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY336",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY324",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky313",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky 345",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky346",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY343",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky347",
+      "ARVS": ""
+    },
+    {
+      "Art": "lky353",
+      "ARVS": "AZT-3TC-LPV/r"
+    },
+    {
+      "Art": "LKY356",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY355",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY348",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY354",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY352",
+      "ARVS": ""
+    },
+    {
+      "Art": "lky 349",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky331",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky351",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky360",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY 361",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky318",
+      "ARVS": ""
+    },
+    {
+      "Art": "lky342",
+      "ARVS": "AZT-3TC-ATV/r"
+    },
+    {
+      "Art": "lky357",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky373",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY375",
+      "ARVS": ""
+    },
+    {
+      "Art": "402",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky382",
+      "ARVS": "TDF-3TC-NVP"
+    },
+    {
+      "Art": "lky350",
+      "ARVS": "AZT-3TC-EFV"
+    },
+    {
+      "Art": "lky405",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky362",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky398",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky372",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky392",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky374",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky383",
+      "ARVS": "AZT/3TC/DTG"
+    },
+    {
+      "Art": "lky393",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky387",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky388",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky384",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky327",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky326",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "lky370",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky358",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky380",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky391",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky397",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky395",
+      "ARVS": ""
+    },
+    {
+      "Art": "lky368",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky404",
+      "ARVS": "TDF-FTC-EFV"
+    },
+    {
+      "Art": "lky335",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky317",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky369",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky409",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky367",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky407",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "lky406",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "403",
+      "ARVS": ""
+    },
+    {
+      "Art": "lky400",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky394",
+      "ARVS": ""
+    },
+    {
+      "Art": "lky385",
+      "ARVS": "AZT-3TC-ATV/r"
+    },
+    {
+      "Art": "lky386",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky364",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky218",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky396",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "lky389",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky410",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky412",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky 411",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky423",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "Lky421",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky419",
+      "ARVS": ""
+    },
+    {
+      "Art": "lky420",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "Lky 424",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY416",
+      "ARVS": ""
+    },
+    {
+      "Art": "lky 417",
+      "ARVS": ""
+    },
+    {
+      "Art": "lky 422",
+      "ARVS": ""
+    },
+    {
+      "Art": "LKY 418",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky 414",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky415",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "lky413",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky379",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky377",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky451",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky444",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky425",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky453",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky445",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky440",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky447",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky455",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky439",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky449",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY427",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky450",
+      "ARVS": ""
+    },
+    {
+      "Art": "lky436",
+      "ARVS": ""
+    },
+    {
+      "Art": "lky429",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky432",
+      "ARVS": ""
+    },
+    {
+      "Art": "lky446",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky456",
+      "ARVS": "AZT-3TC-ATV/r"
+    },
+    {
+      "Art": "lky442",
+      "ARVS": ""
+    },
+    {
+      "Art": "lky437",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY428",
+      "ARVS": ""
+    },
+    {
+      "Art": "lky462",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky433",
+      "ARVS": ""
+    },
+    {
+      "Art": "lky457",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky448",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY469",
+      "ARVS": ""
+    },
+    {
+      "Art": "lky464",
+      "ARVS": ""
+    },
+    {
+      "Art": "lky463",
+      "ARVS": ""
+    },
+    {
+      "Art": "lky465",
+      "ARVS": ""
+    },
+    {
+      "Art": "lky466",
+      "ARVS": ""
+    },
+    {
+      "Art": "lky441",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky461",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky476",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky474",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "lky435",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky431",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "lky430",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "608",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "605",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "542",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "619",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "507",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "585",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "484",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "553",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "629",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "565",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "583",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "573",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "581",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "584",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "591",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "644",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "567",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "574",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "521",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "540",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "570",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "620",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "579",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "541",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "548",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "481",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "537",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "517",
+      "ARVS": "ABC/3TC/DTG"
+    },
+    {
+      "Art": "516",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "468",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "551",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "642",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "641",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "609",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "459",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "559",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "632",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "467",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "534",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "571",
+      "ARVS": ""
+    },
+    {
+      "Art": "488",
+      "ARVS": ""
+    },
+    {
+      "Art": "602",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "600",
+      "ARVS": "AZT-3TC-ATV/r"
+    },
+    {
+      "Art": "502",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "631",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "640",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "614",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "589",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "547",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "490",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "607",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "643",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "598",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "539",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "376",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "634",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "626",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "627",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "438",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "597",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "505",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "580",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "536",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "531",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "452",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "117",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "378",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "599",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "592",
+      "ARVS": "AZT/3TC/DTG"
+    },
+    {
+      "Art": "477",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "606",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "493",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "526",
+      "ARVS": "ABC-3TC-EFV"
+    },
+    {
+      "Art": "628",
+      "ARVS": ""
+    },
+    {
+      "Art": "611",
+      "ARVS": ""
+    },
+    {
+      "Art": "563",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "496",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "535",
+      "ARVS": ""
+    },
+    {
+      "Art": "554",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "604",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "615",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "635",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "555",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "596",
+      "ARVS": ""
+    },
+    {
+      "Art": "633",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "590",
+      "ARVS": "ABC-3TC-NVP"
+    },
+    {
+      "Art": "618",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "576",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "458",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "624",
+      "ARVS": ""
+    },
+    {
+      "Art": "527",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "549",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "508",
+      "ARVS": ""
+    },
+    {
+      "Art": "408",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "515",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "569",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "530",
+      "ARVS": ""
+    },
+    {
+      "Art": "637",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "485",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "564",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "595",
+      "ARVS": ""
+    },
+    {
+      "Art": "561",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "560",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "613",
+      "ARVS": ""
+    },
+    {
+      "Art": "501",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "594",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "639",
+      "ARVS": "ABC-3TC-EFV"
+    },
+    {
+      "Art": "623",
+      "ARVS": ""
+    },
+    {
+      "Art": "638",
+      "ARVS": "ABC-3TC-EFV"
+    },
+    {
+      "Art": "578",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "489",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "587",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "622",
+      "ARVS": ""
+    },
+    {
+      "Art": "586",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "525",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "603",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "566",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "473",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "612",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "617",
+      "ARVS": ""
+    },
+    {
+      "Art": "519",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "562",
+      "ARVS": ""
+    },
+    {
+      "Art": "486",
+      "ARVS": ""
+    },
+    {
+      "Art": "511",
+      "ARVS": ""
+    },
+    {
+      "Art": "601",
+      "ARVS": ""
+    },
+    {
+      "Art": "545",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "701",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "758",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "767",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "760",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "727",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "718",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "719",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "550",
+      "ARVS": "ABC/3TC/DTG"
+    },
+    {
+      "Art": "690",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "771",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "664",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "669",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "666",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "668",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "685",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "714",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "683",
+      "ARVS": "TDF-3TC-NVP"
+    },
+    {
+      "Art": "713",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "662",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "679",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "667",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "692",
+      "ARVS": "AZT-3TC-ATV/r"
+    },
+    {
+      "Art": "678",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "663",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "691",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "680",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "670",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "671",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "675",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "704",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "677",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "661",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "681",
+      "ARVS": "AZT-3TC-EFV"
+    },
+    {
+      "Art": "673",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "665",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "684",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "659",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "676",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "672",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "711",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "682",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "764",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "774",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "775",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "738",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "766",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "762",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "743",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "733",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "759",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "756",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "755",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "757",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "688",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "740",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "754",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "725",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "712",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "765",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "747",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "731",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "693",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "709",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "654",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "655",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "698",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "746",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "729",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "761",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "752",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "753",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "650",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "696",
+      "ARVS": ""
+    },
+    {
+      "Art": "705",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "732",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "721",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "723",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "735",
+      "ARVS": "AZT-3TC-ATV/r"
+    },
+    {
+      "Art": "687",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "779",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "778",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "741",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "697",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "782",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "763",
+      "ARVS": ""
+    },
+    {
+      "Art": "781",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "717",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "689",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "656",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "728",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "734",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "730",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "647",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "575",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "724",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "780",
+      "ARVS": "ABC-3TC-EFV"
+    },
+    {
+      "Art": "783",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "784",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "653",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "737",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "657",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "649",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "785",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "786",
+      "ARVS": "ABC-3TC-EFV"
+    },
+    {
+      "Art": "790",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "789",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "787",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "720",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "686",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "770",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "772",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "359",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "773",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "793",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "794",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "796",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "797",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "792",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "799",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "798",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "805",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "804",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "769",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "707",
+      "ARVS": ""
+    },
+    {
+      "Art": "745",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "739",
+      "ARVS": ""
+    },
+    {
+      "Art": "742",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "744",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "800",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "795",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "806",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "807",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "801",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "808",
+      "ARVS": "AZT/3TC/DTG"
+    },
+    {
+      "Art": "810",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "811",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "478",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "703",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "572",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "749",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "483",
+      "ARVS": ""
+    },
+    {
+      "Art": "651",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "529",
+      "ARVS": ""
+    },
+    {
+      "Art": "621",
+      "ARVS": ""
+    },
+    {
+      "Art": "475",
+      "ARVS": ""
+    },
+    {
+      "Art": "813",
+      "ARVS": "ABC/3TC/DTG"
+    },
+    {
+      "Art": "812",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "814",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "815",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "817",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "816",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "809",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "818",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "823",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "824",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "820",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "821",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "819",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "822",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "825",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "827",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "826",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "768",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "320",
+      "ARVS": ""
+    },
+    {
+      "Art": "509",
+      "ARVS": ""
+    },
+    {
+      "Art": "492",
+      "ARVS": ""
+    },
+    {
+      "Art": "544",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "658",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "708",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "694",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "710",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "491",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "532",
+      "ARVS": ""
+    },
+    {
+      "Art": "480",
+      "ARVS": ""
+    },
+    {
+      "Art": "329",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "751",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "652",
+      "ARVS": ""
+    },
+    {
+      "Art": "674",
+      "ARVS": ""
+    },
+    {
+      "Art": "506",
+      "ARVS": ""
+    },
+    {
+      "Art": "504",
+      "ARVS": ""
+    },
+    {
+      "Art": "510",
+      "ARVS": ""
+    },
+    {
+      "Art": "513",
+      "ARVS": "ABC-3TC-EFV"
+    },
+    {
+      "Art": "514",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "512",
+      "ARVS": ""
+    },
+    {
+      "Art": "699",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "829",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "831",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "830",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "750",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "366",
+      "ARVS": "ABC-3TC-NVP"
+    },
+    {
+      "Art": "487",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "471",
+      "ARVS": ""
+    },
+    {
+      "Art": "833",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "835",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "832",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "700",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "838",
+      "ARVS": "AZT/3TC/DTG"
+    },
+    {
+      "Art": "837",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "836",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "828",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "839",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "841",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "840",
+      "ARVS": ""
+    },
+    {
+      "Art": "842",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "843",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "845",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "844",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "846",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "847",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "848",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "849",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "851",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "852",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "854",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "853",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "855",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "850",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "856",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "857",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "860",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "859",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "858",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "300",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "229",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "365",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "557",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "184",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "556",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "301",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "588",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "558",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "546",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "238",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "211",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "187",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "748",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "616",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "538",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "499",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "716",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "788",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "715",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "776",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "636",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "186",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "861",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "518",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "470",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "426",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "185",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "390",
+      "ARVS": ""
+    },
+    {
+      "Art": "401",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "863",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "866",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "865",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "864",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "867",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "868",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "869",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "872",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "873",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "871",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "874",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "875",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "870",
+      "ARVS": "ABC-3TC-LPV/r"
+    },
+    {
+      "Art": "877",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "880",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "876",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "879",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "882",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "884",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "885",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "886",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "878",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "883",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "702",
+      "ARVS": "AZT-3TC-NVP"
+    },
+    {
+      "Art": "0",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "881",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "887",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "888",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "889",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "891",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "890",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "892",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "893",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "894",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "895",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "896",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "899",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "900",
+      "ARVS": "ABC/3TC/DTG"
+    },
+    {
+      "Art": "898",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "897",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "901",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "908",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "903",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "904",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "902",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "905",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "907",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "906",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "909",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "910",
+      "ARVS": "TDF-FTC-EFV"
+    },
+    {
+      "Art": "911",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "912",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "913",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "914",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "915",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "917",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "923",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "922",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "920",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "918",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "916",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "924",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "930",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "929",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "927",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "928",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "931",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "925",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "926",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "933",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "934",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "935",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "936",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "937",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "932",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "938",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "939",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "940",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "941",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "919",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "943",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "942",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "946",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "947",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "944",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "945",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "949",
+      "ARVS": "ABC/3TC/DTG"
+    },
+    {
+      "Art": "948",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "950",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "951",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "952",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "953",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "965",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "966",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "960",
+      "ARVS": ""
+    },
+    {
+      "Art": "957",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "955",
+      "ARVS": ""
+    },
+    {
+      "Art": "954",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "963",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "962",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "961",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "969",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "968",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "967",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "956",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "964",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "975",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "974",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "972",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "971",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "973",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "984",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "982",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "983",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "977",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "979",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "959",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "985",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "986",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "976",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "981",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "978",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "987",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "970",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "988",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "989",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "990",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "991",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "992",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "993",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "996",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "994",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "999",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "998",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "997",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1004",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1003",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "1002",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1001",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1006",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "LKY1005",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY995",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1008",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1007",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1009",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "958",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY1010",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY1012",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1013",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1014",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "LKY1000",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1011",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1016",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1017",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1021",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1018",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1020",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1015",
+      "ARVS": ""
+    },
+    {
+      "Art": "1022",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1023",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1024",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1025",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1027",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1029",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "1028",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1030",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1031",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1032",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1033",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1034",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1036",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1035",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1038",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1037",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1042",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1040",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1019",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1041",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1026",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1045",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "1043",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1047",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1048",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1049",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1046",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1044",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1051",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1052",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1054",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1055",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1057",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1060",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1058",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1059",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1050",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "1061",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1062",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1064",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1065",
+      "ARVS": "OTHER SPECIFY"
+    },
+    {
+      "Art": "1066",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1067",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1144",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1145",
+      "ARVS": ""
+    },
+    {
+      "Art": "1171",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1092",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1087",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1156",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1080",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1119",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1127",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1131",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1088",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1116",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1124",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1091",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1138",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1094",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1154",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1123",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1128",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1095",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1086",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1155",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1105",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1122",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1163",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1117",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1129",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1172",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1173",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1132",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1142",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1103",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1090",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1070",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1161",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1150",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1093",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1152",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1102",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1075",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1107",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1079",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1133",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1072",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1071",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1068",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1115",
+      "ARVS": "ABC/3TC/DTG"
+    },
+    {
+      "Art": "1120",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1089",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1104",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1096",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1151",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1069",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1159",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1162",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1167",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1076",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1158",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1169",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1168",
+      "ARVS": "ABC/3TC/DTG"
+    },
+    {
+      "Art": "1166",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1126",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1164",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1175",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1177",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1176",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1178",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1189",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY 1192",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1193",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1182",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1185",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1188",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1187",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1186",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1184",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1183",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1098",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1135",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1101",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1136",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1084",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1073",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1113",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1141",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1118",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1082",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1112",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1130",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1146",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1153",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1100",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1074",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1160",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1149",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1097",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1085",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1143",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1114",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1125",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1134",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1148",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1170",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1147",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1111",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1078",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1121",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1081",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1109",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1139",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1083",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1106",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1165",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1157",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1137",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1108",
+      "ARVS": "ABC-3TC-LPV/r"
+    },
+    {
+      "Art": "1077",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1140",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1099",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1110",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1196",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1191",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1039",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1053",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1190",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1194",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1197",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1195",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1198",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1199",
+      "ARVS": ""
+    },
+    {
+      "Art": "1181",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1180",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1174",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1179",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1201",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1200",
+      "ARVS": "AZT/3TC/DTG"
+    },
+    {
+      "Art": "1202",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1205",
+      "ARVS": "AZT-3TC-ATV/r"
+    },
+    {
+      "Art": "1210",
+      "ARVS": "ABC-3TC-LPV/r"
+    },
+    {
+      "Art": "1209",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1203",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1208",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1207",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1206",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1211",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1212",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1213",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1215",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1214",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1217",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1216",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1218",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1204",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1219",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1220",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1221",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1223",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1222",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1224",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1226",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1227",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1228",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1230",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1231",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1225",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1229",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1232",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "791",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "533",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "593",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "494",
+      "ARVS": ""
+    },
+    {
+      "Art": "834",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1235",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1236",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1238",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1237",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1240",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1234",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1239",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1241",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1233",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1243",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1244",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1242",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1245",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1246",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1247",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1248",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1249",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1251",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1250",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1252",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1253",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1256",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1257",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1258",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1255",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1254",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1259",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1260",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1261",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1262",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1263",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1265",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1269",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1267",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1268",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1264",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1266",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1270",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1271",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1280",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1274",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1272",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1277",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1273",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1275",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1276",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1281",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1278",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1279",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1283",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1282",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1284",
+      "ARVS": "ABC/3TC/DTG"
+    },
+    {
+      "Art": "1285",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1286",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1287",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1288",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1289",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1291",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1292",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1290",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1301",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1302",
+      "ARVS": "ABC-3TC-LPV/r"
+    },
+    {
+      "Art": "1303",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1294",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1307",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1306",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1308",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1305",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1304",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1313",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1315",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1314",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1056",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1309",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1316",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1311",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1310",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1300",
+      "ARVS": "ABC/3TC/DTG"
+    },
+    {
+      "Art": "1318",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1317",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1298",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1299",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1297",
+      "ARVS": "ABC/3TC/DTG"
+    },
+    {
+      "Art": "1295",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1296",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1319",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1320",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1321",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1322",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1324",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1323",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1325",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1327",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1326",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1332",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1330",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1331",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1328",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1329",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1333",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1334",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1337",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1336",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1335",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1339",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1338",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1341",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1342",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1340",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1343",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1344",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1345",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1346",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1351",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1352",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1347",
+      "ARVS": "AZT-3TC-ATV/r"
+    },
+    {
+      "Art": "1348",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1349",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1355",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1354",
+      "ARVS": "ABC/3TC/DTG"
+    },
+    {
+      "Art": "1353",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1350",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1359",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1360",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1357",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1358",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1356",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1312",
+      "ARVS": "AZT-3TC-ATV/r"
+    },
+    {
+      "Art": "1361",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1363",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1365",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1364",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1362",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1368",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1367",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1369",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1372",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1370",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1371",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1366",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1373",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1375",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1378",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1377",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1376",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1379",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1380",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1381",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1382",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1374",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1383",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1384",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1385",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1386",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1387",
+      "ARVS": "AZT-3TC-ATV/r"
+    },
+    {
+      "Art": "1388",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1389",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1390",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1391",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1392",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1393",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1398",
+      "ARVS": "ABC/3TC/DTG"
+    },
+    {
+      "Art": "1396",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1397",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1395",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1400",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1399",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1402",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1401",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1405",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1404",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1394",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1403",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1406",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1408",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1407",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1410",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1411",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1409",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1414",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1416",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1417",
+      "ARVS": "AZT-3TC-ATV/r"
+    },
+    {
+      "Art": "1412",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1420",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1418",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1419",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1413",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1415",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1423",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1425",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1424",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1421",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1422",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1427",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1428",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1426",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1431",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1437",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1438",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1436",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1432",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1433",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1435",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1429",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1434",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1430",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1442",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1441",
+      "ARVS": "ABC/3TC/DTG"
+    },
+    {
+      "Art": "1439",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1440",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1444",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1446",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1447",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1443",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1454",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1455",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1456",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1459",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1458",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1457",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1463",
+      "ARVS": "TDF-FTC-NVP"
+    },
+    {
+      "Art": "1464",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1465",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1466",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1470",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1467",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1460",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1461",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1462",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1453",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1487",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1480",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1481",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1483",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1482",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1484",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1485",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1471",
+      "ARVS": "ABC/3TC/DTG"
+    },
+    {
+      "Art": "1472",
+      "ARVS": "AZT-3TC-ATV/r"
+    },
+    {
+      "Art": "1495",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1499",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1534",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1496",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1486",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1502",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1529",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1525",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1531",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1535",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1517",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1488",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1504",
+      "ARVS": "TDF-FTC-NVP"
+    },
+    {
+      "Art": "1515",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1501",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1532",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1505",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1452",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1503",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1521",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1490",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1494",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1530",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1526",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1500",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1492",
+      "ARVS": "TDF-3TC-EFV"
+    },
+    {
+      "Art": "1506",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1489",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1522",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1508",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1474",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1449",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1477",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1518",
+      "ARVS": "AZT/3TC/DTG"
+    },
+    {
+      "Art": "1536",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1539",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1541",
+      "ARVS": "TDF-FTC-NVP"
+    },
+    {
+      "Art": "1537",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1538",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1551",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1540",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1547",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1550",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1552",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1548",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1553",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1543",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1549",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1545",
+      "ARVS": "TDF-FTC-NVP"
+    },
+    {
+      "Art": "1546",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1544",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1554",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1556",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1557",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1559",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1563",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1558",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1565",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1564",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1562",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1569",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1568",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1566",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1567",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1570",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1561",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1578",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1577",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1573",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1574",
+      "ARVS": ""
+    },
+    {
+      "Art": "1576",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1575",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1572",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1571",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1588",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1511",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1513",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1524",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1516",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1473",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1512",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1469",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1479",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1523",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1497",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1498",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1520",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1448",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1514",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1519",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1468",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1451",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1493",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1595",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1596",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1555",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1592",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1597",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1598",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1579",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1583",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1599",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1590",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1591",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1585",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1594",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1584",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1581",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1580",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1507",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1491",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1587",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1475",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1476",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1527",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1450",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1478",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1510",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1586",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1589",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1445",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1542",
+      "ARVS": "ABC/3TC/DTG"
+    },
+    {
+      "Art": "1509",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1528",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1560",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1604",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1601",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1603",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1600",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1602",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1607",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1609",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1605",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1608",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1606",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1610",
+      "ARVS": "ABC/3TC/DTG"
+    },
+    {
+      "Art": "1612",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1623",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1622",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1621",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1613",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1619",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1616",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1618",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1614",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1615",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1617",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1630",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1631",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1624",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1632",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1642",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1638",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1639",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1641",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1634",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1620",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1627",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1626",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1625",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1629",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1628",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1636",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1635",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1633",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1637",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1650",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1651",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1643",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1646",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1640",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1653",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1647",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1649",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1656",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1655",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1657",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1659",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1660",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1661",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1665",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1664",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1663",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1662",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1667",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1658",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1666",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1654",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1644",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1645",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1648",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1652",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1668",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1671",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1674",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1669",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1670",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1672",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1673",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1678",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1677",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1676",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1675",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1680",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1681",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1682",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "04/2023/007",
+      "ARVS": ""
+    },
+    {
+      "Art": "1691",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1690",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1692",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1685",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1689",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1688",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1687",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1686",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1683",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1684",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1679",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1695",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1694",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1693",
+      "ARVS": ""
+    },
+    {
+      "Art": "1698",
+      "ARVS": "ABC/3TC/DTG"
+    },
+    {
+      "Art": "1699",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1700",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1696",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1697",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1706",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1593",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1708",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1709",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1703",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1712",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1713",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1715",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1714",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1720",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1722",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1721",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1701",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1702",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1705",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1707",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1710",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1711",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1716",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1717",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1718",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1719",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1723",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1704",
+      "ARVS": ""
+    },
+    {
+      "Art": "1724",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1725",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1726",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1727",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1728",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1729",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1736",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1739",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1740",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1730",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1733",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1732",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1734",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1731",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1738",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1735",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1737",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1741",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1747",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1746",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1743",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1742",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1744",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1749",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1751",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1745",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1756",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1753",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1754",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1752",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1758",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1757",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1755",
+      "ARVS": "TDF-FTC-NVP"
+    },
+    {
+      "Art": "1759",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1748",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1750",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1761",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1764",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1765",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1766",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1772",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1774",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1792",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1782",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1779",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1785",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1780",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1786",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1773",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1767",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1788",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1787",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1790",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1778",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1775",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1776",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1771",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1770",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1777",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1781",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1784",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1783",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1769",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1768",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1789",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1791",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1794",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1796",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1793",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1795",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1797",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1798",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1799",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1760",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1762",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1763",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1800",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1802",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1803",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1804",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1801",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1812",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1805",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1806",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1809",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1808",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1810",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1811",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1807",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1816",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1818",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1817",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1813",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1819",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1821",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1820",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1822",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1823",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1827",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1826",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1829",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1830",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1825",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1824",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1828",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1834",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1814",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1836",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1844",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1815",
+      "ARVS": "ABC/3TC/DTG"
+    },
+    {
+      "Art": "LKY1855",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1850",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1848",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1831",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1832",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1835",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1837",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1841",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1852",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1859",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1843",
+      "ARVS": "AZT/3TC/DTG"
+    },
+    {
+      "Art": "LKY 1842",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1862",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1851",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1839",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1845",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1798",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1858",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1840",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1847",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1853",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1846",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1632",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1857",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1838",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1866",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1860",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1870",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1867",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1868",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1869",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1865",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1863",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1861",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1864",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1871",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY 1879",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1849",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "BKL1854",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1856",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1875",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1872",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1873",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1878",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1874",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1877",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1876",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1882",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1883",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1885",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1886",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1880",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1881",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1888",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1884",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY 1889",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY 1894",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY 1891",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY 1893",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY 1892",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1887",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY 1895",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1897",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1896",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1898",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1899",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1900",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1901",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1890",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1904",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1903",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1907",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1908",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1906",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1905",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1909",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1914",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1912",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1902",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1910",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1916",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1911",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1913",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1915",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1917",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1920",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1927",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1928",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1931",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1933",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1924",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1925",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKYA1923",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1921",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1926",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1930",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1919",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1932",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY 1929",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY 1934",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY 1922",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1630",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY 1935",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1936",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1937",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1918",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1938",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1940",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1939",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1941",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1942",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1943",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1945",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "1946",
+      "ARVS": "TDF/3TC/DTG30"
+    },
+    {
+      "Art": "LKY1948",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1947",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1953",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1950",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1951",
+      "ARVS": "TDF/3TC/DTG"
+    },
+    {
+      "Art": "LKY1952",
+      "ARVS": "TDF/3TC/DTG"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+[project]
+name = "ugandaemr_update_tool"
+version = "1.0.2"
+description = "Local UgandaEMR update tool for Windows and Android"
+requires-python = ">=3.14"
+dependencies = [
+    "flet==0.86.5",
+    "numpy==2.4.6",
+    "pandas==3.0.3",
+    "requests==2.34.2",
+]
+
+[tool.flet]
+product = "UgandaEMR Update Tool"
+artifact = "ugandaemr-update-tool"
+org = "org.centcom"
+bundle_id = "org.centcom.ugandaemr_update_tool"
+build_number = 3
+
+[tool.flet.app]
+module = "main.py"
+exclude = [
+    ".venv",
+    "BATCH_REFERENCE",
+    "CREDENTIALS.csv",
+    "convert_data.py",
+    "UPDATE_DATA.cmd",
+    "batch2.py",
+    "batch3.py",
+    "__pycache__",
+]
+
+[tool.flet.android]
+legacy_packaging = true
+
+[tool.flet.android.permission]
+"android.permission.INTERNET" = true
+
+[tool.flet.android.manifest_application]
+usesCleartextTraffic = "true"
+allowBackup = "false"

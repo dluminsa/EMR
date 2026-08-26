@@ -1,0 +1,29 @@
+UgandaEMR Update Tool 1.0.2 - Android diagnostic build
+=======================================================
+
+INSTALLATION
+
+1. Copy UgandaEMR-Android-1.0.2.apk to the Android device.
+2. Open the APK and approve updating the existing UgandaEMR Update Tool.
+3. Do not uninstall version 1.0.1 first; version 1.0.2 uses the same app ID and
+   signing certificate and is intended to install as an update.
+
+DIAGNOSTIC TEST
+
+1. Connect the device to the same private facility network as the UgandaEMR
+   server.
+2. Repeat the ONE_CLIENT update that produced the login error.
+3. Capture the complete red diagnostic message, including its code in square
+   brackets, HTTP status, final URL, redirect summary, and session location.
+4. Do not share facility usernames or passwords in the screenshot.
+
+Useful diagnostic codes include LOGIN_REJECTED_BY_EMR, LOGIN_PAGE_RETURNED,
+LOGIN_SESSION_NOT_ESTABLISHED, NETWORK_CONNECTION_REFUSED, and
+NETWORK_CONNECT_TIMEOUT. These distinguish a bad password from an incorrect
+session location, an account restriction, a network failure, or an EMR login
+flow difference.
+
+SECURITY
+
+This package contains confidential facility configuration. Do not forward it
+to unauthorized people or upload it to a public website.

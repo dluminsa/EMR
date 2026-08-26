@@ -1,0 +1,23 @@
+UgandaEMR Update Tool 1.0.1 - Windows
+=====================================
+
+INSTALLATION
+
+1. Right-click UgandaEMR-Windows-1.0.1.zip and select "Extract All".
+2. Open the extracted folder.
+3. Double-click ugandaemr-update-tool.exe.
+4. Keep the executable and all supplied folders and DLL files together.
+
+NETWORK REQUIREMENT
+
+The computer must be connected to the same private facility network as the
+UgandaEMR server. If Windows Firewall asks, allow access on Private networks.
+
+SECURITY WARNINGS
+
+Windows may show a SmartScreen warning because this internally distributed
+application is not code-signed. Only proceed if the ZIP came from your
+authorized UgandaEMR application administrator.
+
+This package contains confidential facility configuration. Do not forward it
+to unauthorized people or upload it to a public website.
