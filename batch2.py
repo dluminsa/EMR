@@ -12,6 +12,8 @@ import pandas as pd
 import requests
 import streamlit as st
 
+from hmis_submission import check_submission, refill_controls, submission_url
+
 
 CREDENTIALS_FILE = Path("CREDENTIALS.csv")
 REFERENCE_DIR = Path("BATCH_REFERENCE")
@@ -125,7 +127,7 @@ class FormParser(HTMLParser):
             input_type = (
                 self.clean_attribute(attrs.get("type", "text")) or "text"
             ).lower()
-            if not name or attrs.get("disabled") is not None:
+            if not name or "disabled" in attrs:
                 return
             if input_type in {"button", "submit", "reset", "file", "image"}:
                 return
@@ -552,7 +554,7 @@ def submit_hmis_form(
     parser.feed(response.text)
     if not parser.action:
         raise EmrError("The HMIS submission form was not found in the page.")
-    provider_value, provider_name = first_provider(parser)
+    provider_value, _ = first_provider(parser)
     (
         regimen_name,
         regimen_value,
@@ -560,7 +562,7 @@ def submit_hmis_form(
         days_name,
     ) = art_medication_controls(parser, regimen)
 
-    controls = parser.controls
+    controls = refill_controls(response.text, parser.controls)
     form_visit_id = control_value(controls, "visitId") or visit_id
     if not form_visit_id:
         raise EmrError("The HMIS form did not contain its numeric visit ID.")
@@ -587,17 +589,12 @@ def submit_hmis_form(
 
     # Passing (None, value) makes requests reproduce the captured multipart form.
     multipart = [(name, (None, value)) for name, value in controls]
-    populated = [(name, value) for name, value in controls if str(value).strip()]
     print(
         f"[HMIS FIELDS] regimen={regimen_name}, pills={pills_name}, "
         f"days={days_name}",
         flush=True,
     )
-    print(
-        f"[HMIS PAYLOAD] fields={len(controls)}, populated={populated}",
-        flush=True,
-    )
-    submit_url = urljoin(form_url, parser.action)
+    submit_url = submission_url(base_url, parser.action)
     submitted = request(
         session,
         "POST",
@@ -610,30 +607,7 @@ def submit_hmis_form(
         },
         allow_redirects=True,
     )
-    body = submitted.text.lower()
-    if submitted.status_code >= 400 or any(
-        marker in body
-        for marker in ("error submitting", "validation error", "has errors")
-    ):
-        try:
-            LAST_SUBMISSION_ERROR_FILE.write_text(
-                submitted.text, encoding="utf-8", errors="replace"
-            )
-        except OSError:
-            pass
-        error_text = re.sub(r"\s+", " ", submitted.text).strip()
-        print(
-            f"[HMIS SERVER ERROR] {error_text[:4000]}",
-            flush=True,
-        )
-        raise EmrError(
-            "OpenMRS rejected the HMIS form submission. Server response was "
-            "saved to batch2_last_submission_error.html."
-        )
-    print(
-        f"[HMIS] Updated patient={patient_uuid}, provider={provider_name}",
-        flush=True,
-    )
+    check_submission(submitted, LAST_SUBMISSION_ERROR_FILE, EmrError)
 
 
 def update_client(

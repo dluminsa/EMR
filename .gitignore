@@ -7,5 +7,11 @@ __pycache__/
 !BATCH_REFERENCE/*.csv
 !FLET/BATCH_REFERENCE/
 !FLET/BATCH_REFERENCE/*.csv
+FLET/RELEASES/*.apk
+FLET/RELEASES/*.zip
+FLET/build/python-app/RELEASES/*.zip
 .env
 .env.*
+CREDENTIALS.json
+batch_network_log*.jsonl
+batch*_last_submission_error.html

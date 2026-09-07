@@ -11,6 +11,8 @@ import pandas as pd
 import requests
 import streamlit as st
 
+from hmis_submission import check_submission, refill_controls, submission_url
+
 
 CREDENTIALS_FILE = Path("CREDENTIALS.csv")
 REFERENCE_DIR = Path("BATCH_REFERENCE")
@@ -115,7 +117,7 @@ class FormParser(HTMLParser):
             input_type = (
                 self.clean_attribute(attrs.get("type", "text")) or "text"
             ).lower()
-            if not name or attrs.get("disabled") is not None:
+            if not name or "disabled" in attrs:
                 return
             if input_type in {"button", "submit", "reset", "file", "image"}:
                 return
@@ -497,7 +499,7 @@ def submit_hmis_form(
         parser, regimen
     )
 
-    controls = parser.controls
+    controls = refill_controls(response.text, parser.controls)
     form_visit_id = control_value(controls, "visitId") or visit_id
     if not form_visit_id:
         raise EmrError("The HMIS form did not contain its numeric visit ID.")
@@ -525,7 +527,7 @@ def submit_hmis_form(
     submitted = request(
         session,
         "POST",
-        urljoin(form_url, parser.action),
+        submission_url(base_url, parser.action),
         files=[(name, (None, value)) for name, value in controls],
         headers={
             "Accept": "application/json, text/javascript, */*; q=0.01",
@@ -534,21 +536,7 @@ def submit_hmis_form(
         },
         allow_redirects=True,
     )
-    body = submitted.text.lower()
-    if submitted.status_code >= 400 or any(
-        marker in body
-        for marker in ("error submitting", "validation error", "has errors")
-    ):
-        try:
-            LAST_SUBMISSION_ERROR_FILE.write_text(
-                submitted.text, encoding="utf-8", errors="replace"
-            )
-        except OSError:
-            pass
-        raise EmrError(
-            "OpenMRS rejected the HMIS form submission. The response was saved "
-            "to batch4_last_submission_error.html."
-        )
+    check_submission(submitted, LAST_SUBMISSION_ERROR_FILE, EmrError)
 
 
 def update_client(

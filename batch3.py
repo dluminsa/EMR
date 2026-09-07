@@ -18,13 +18,15 @@ from urllib.parse import urljoin
 
 import requests
 
+from hmis_submission import check_submission, refill_controls, submission_url
+
 CREDENTIALS_FILE = Path("CREDENTIALS.csv")
 REFERENCE_DIR = Path("BATCH_REFERENCE")
 
 LOCATION_ID = "5"
 FORM_UUID = "12de5bc5-352e-4faf-9961-a2125085a75c"
 REQUEST_TIMEOUT = 45
-LAST_SUBMISSION_ERROR_FILE = Path("batch2_last_submission_error.html")
+LAST_SUBMISSION_ERROR_FILE = Path("batch3_last_submission_error.html")
 VISIT_DATE_CONFLICT_MESSAGE = (
     "The date you selected is conflicting with other visit(s). "
     "Click to navigate to a visit:"
@@ -110,18 +112,35 @@ class VisitDateConflictError(EmrError):
 class FormParser(HTMLParser):
     """Collect successful controls from the HMIS HTML form."""
 
+    SEMANTIC_CONTROL_IDS = {
+        "art-regimen",
+        "no-of-art-pills",
+        "no-of-art-pills-days",
+    }
+
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.in_target_form = False
         self.depth = 0
         self.action = ""
-        self.controls = []
-        self.select_options = {}
+        self.controls: list[tuple[str, str]] = []
+        self.select_options: dict[str, list[dict[str, object]]] = {}
+        self.semantic_controls: dict[str, str] = {}
+        self.pending_semantic_control = None
         self.select = None
         self.option = None
         self.textarea = None
 
+    def remember_semantic_control(self, name):
+        """Associate a generated w-number with its stable HMIS container ID."""
+        if self.pending_semantic_control:
+            self.semantic_controls.setdefault(
+                self.pending_semantic_control, name
+            )
+            self.pending_semantic_control = None
+
     def finish_option(self):
+        """Save an option even when its optional closing tag is omitted."""
         if self.option is None or self.select is None:
             return
         if self.option["value"] is None:
@@ -131,9 +150,16 @@ class FormParser(HTMLParser):
 
     @staticmethod
     def clean_attribute(value):
+        """Remove quote characters emitted inside generated HTML attributes."""
         if value is None:
             return None
+        # Generated UgandaEMR markup contains sequences such as value=\"16\"/.
+        # HTMLParser exposes the trailing quote/backslash/slash as part of the
+        # value, so remove all of those wrapper characters at both ends.
         cleaned = str(value).strip()
+        # A leading slash may be a legitimate absolute application path.
+        # Remove only quote/backslash wrappers on the left, while the right
+        # side may also contain the stray self-closing-tag slash.
         return cleaned.lstrip("\\\"'").rstrip("\\\"'/").strip()
 
     def handle_starttag(self, tag, attrs):
@@ -150,22 +176,29 @@ class FormParser(HTMLParser):
         if not self.in_target_form:
             return
 
+        element_id = self.clean_attribute(attrs.get("id"))
+        if element_id in self.SEMANTIC_CONTROL_IDS:
+            self.pending_semantic_control = element_id
+
         if tag == "input":
             name = self.clean_attribute(attrs.get("name"))
             input_type = (
                 self.clean_attribute(attrs.get("type", "text")) or "text"
             ).lower()
-            if not name or attrs.get("disabled") is not None:
+            if not name or "disabled" in attrs:
                 return
             if input_type in {"button", "submit", "reset", "file", "image"}:
                 return
             if input_type in {"checkbox", "radio"} and "checked" not in attrs:
                 return
             value = self.clean_attribute(attrs.get("value", "")) or ""
+            self.remember_semantic_control(name)
             self.controls.append((name, value))
         elif tag == "select" and attrs.get("name"):
+            name = self.clean_attribute(attrs["name"])
+            self.remember_semantic_control(name)
             self.select = {
-                "name": self.clean_attribute(attrs["name"]),
+                "name": name,
                 "disabled": "disabled" in attrs,
                 "options": [],
             }
@@ -346,8 +379,22 @@ def create_visit(session, base_url, patient_uuid, patient_id, visit_date):
                 == visit_date
             )
 
-        if any(is_same_visit_date(item) for item in existing_results):
-            raise VisitDateConflictError
+        same_date_visits = [
+            item for item in existing_results if is_same_visit_date(item)
+        ]
+        if same_date_visits:
+            reusable = [
+                item for item in same_date_visits if not (item.get("encounters") or [])
+            ]
+            if len(same_date_visits) != 1 or len(reusable) != 1:
+                raise VisitDateConflictError(
+                    "The last encounter date conflicts with an existing visit."
+                )
+            visit_uuid = reusable[0].get("uuid")
+            if not visit_uuid:
+                raise EmrError("The existing empty visit has no UUID.")
+            visit_id = reusable[0].get("visitId") or reusable[0].get("id")
+            return str(visit_uuid), str(visit_id or "")
 
     response = request(
         session,
@@ -365,19 +412,20 @@ def create_visit(session, base_url, patient_uuid, patient_id, visit_date):
         VISIT_DATE_CONFLICT_MESSAGE in response.text
         or "conflicting with other visit" in response.text
     ):
-        raise VisitDateConflictError
+        raise VisitDateConflictError(
+            "The last encounter date conflicts with an existing visit."
+        )
     if response.status_code >= 400:
         raise EmrError("OpenMRS could not create the retrospective visit.")
 
-    visit_uuid = None
-    visit_id = None
     try:
         payload = response.json()
     except ValueError:
         payload = {}
-    if isinstance(payload, dict):
-        visit_uuid = payload.get("uuid") or payload.get("visitUuid")
-        visit_id = payload.get("visitId") or payload.get("id")
+    if not isinstance(payload, dict):
+        payload = {}
+    visit_uuid = payload.get("uuid") or payload.get("visitUuid")
+    visit_id = payload.get("visitId") or payload.get("id")
 
     visits = request(
         session,
@@ -397,16 +445,17 @@ def create_visit(session, base_url, patient_uuid, patient_id, visit_date):
         except ValueError:
             candidates = []
         dated = [
-            item for item in candidates
+            item
+            for item in candidates
             if str(item.get("startDatetime", ""))[:10] == visit_date
         ]
         if dated:
             chosen = dated[-1]
             visit_uuid = visit_uuid or chosen.get("uuid")
             visit_id = visit_id or chosen.get("visitId") or chosen.get("id")
+
     if not visit_uuid:
         raise EmrError("The new visit UUID could not be determined.")
-
     dashboard = request(
         session,
         "GET",
@@ -446,6 +495,47 @@ def select_value_for_label(parser, control_name, selected_label):
     )
 
 
+def art_medication_controls(parser, selected_label):
+    regimen_name = parser.semantic_controls.get("art-regimen")
+    if not regimen_name:
+        matching_selects = []
+        for name, options in parser.select_options.items():
+            if any(
+                (FormParser.clean_attribute(option.get("value")) or "")
+                and str(option.get("text") or "").strip() == selected_label
+                for option in options
+            ):
+                matching_selects.append(name)
+        if len(matching_selects) != 1:
+            raise EmrError(
+                f"The HMIS form does not contain ART regimen {selected_label}."
+            )
+        regimen_name = matching_selects[0]
+
+    regimen_value = select_value_for_label(parser, regimen_name, selected_label)
+    pills_name = parser.semantic_controls.get("no-of-art-pills")
+    days_name = parser.semantic_controls.get("no-of-art-pills-days")
+    generated_match = re.fullmatch(r"w(\d+)", regimen_name)
+    if generated_match:
+        generated_number = int(generated_match.group(1))
+        pills_name = pills_name or f"w{generated_number + 4}"
+        days_name = days_name or f"w{generated_number + 6}"
+
+    available_controls = {name for name, _ in parser.controls}
+    if (
+        not pills_name
+        or not days_name
+        or pills_name not in available_controls
+        or days_name not in available_controls
+    ):
+        raise EmrError("The HMIS ART pill and day fields could not be identified.")
+    return regimen_name, regimen_value, pills_name, days_name
+
+
+def control_value(controls, name):
+    return next((value for key, value in reversed(controls) if key == name), "")
+
+
 def submit_hmis_form(
     session,
     base_url,
@@ -458,9 +548,10 @@ def submit_hmis_form(
     quantity,
     regimen,
 ):
+    visit_reference = visit_id or visit_uuid
     return_url = (
-        f"/openmrs/coreapps/patientdashboard/patientDashboard.page?"
-        f"patientId={patient_id}&visitId={visit_id}"
+        "/openmrs/coreapps/patientdashboard/patientDashboard.page?"
+        f"patientId={patient_id}&visitId={visit_reference}"
     )
     form_url = f"{base_url}/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page"
     response = request(
@@ -482,32 +573,40 @@ def submit_hmis_form(
     if not parser.action:
         raise EmrError("The HMIS submission form was not found in the page.")
     provider_value, _ = first_provider(parser)
-    regimen_value = select_value_for_label(parser, "w589", regimen)
+    regimen_name, regimen_value, pills_name, days_name = art_medication_controls(
+        parser, regimen
+    )
 
-    controls = parser.controls
+    controls = refill_controls(response.text, parser.controls)
+    form_visit_id = control_value(controls, "visitId") or visit_id
+    if not form_visit_id:
+        raise EmrError("The HMIS form did not contain its numeric visit ID.")
+    return_url = (
+        "/openmrs/coreapps/patientdashboard/patientDashboard.page?"
+        f"patientId={patient_id}&visitId={form_visit_id}"
+    )
     updates = {
         "personId": patient_id,
         "createVisit": "false",
-        "visitId": visit_id,
+        "visitId": form_visit_id,
         "returnUrl": return_url,
         "w1": LOCATION_ID,
         "w3": visit_date,
         "w6": return_date,
         "w9": provider_value,
         "w16": "164972",
-        "w589": regimen_value,
-        "w593": quantity,
-        "w595": quantity,
+        regimen_name: regimen_value,
+        pills_name: quantity,
+        days_name: quantity,
     }
     for name, value in updates.items():
         set_control(controls, name, value)
 
-    multipart = [(name, (None, value)) for name, value in controls]
     submitted = request(
         session,
         "POST",
-        urljoin(form_url, parser.action),
-        files=multipart,
+        submission_url(base_url, parser.action),
+        files=[(name, (None, value)) for name, value in controls],
         headers={
             "Accept": "application/json, text/javascript, */*; q=0.01",
             "X-Requested-With": "XMLHttpRequest",
@@ -515,21 +614,7 @@ def submit_hmis_form(
         },
         allow_redirects=True,
     )
-    body = submitted.text.lower()
-    if submitted.status_code >= 400 or any(
-        marker in body
-        for marker in ("error submitting", "validation error", "has errors")
-    ):
-        try:
-            LAST_SUBMISSION_ERROR_FILE.write_text(
-                submitted.text, encoding="utf-8", errors="replace"
-            )
-        except OSError:
-            pass
-        raise EmrError(
-            "OpenMRS rejected the HMIS form submission. Server response was "
-            "saved to batch2_last_submission_error.html."
-        )
+    check_submission(submitted, LAST_SUBMISSION_ERROR_FILE, EmrError)
 
 
 def update_client(
@@ -982,7 +1067,7 @@ if st.button("BATCH UPLOAD", type="primary"):
                 flush=True,
             )
             rejected = client.to_dict()
-            rejected['REASON_REJECTED'] = 'FAILED TO UPDATE'
+            rejected['REASON_REJECTED'] = f'FAILED TO UPDATE: {exc}'
             failed_rows.append(rejected)
 
         if total_updates:
