@@ -18,17 +18,71 @@ from urllib.parse import urljoin
 
 import requests
 
+from hmis_submission import check_submission, refill_controls, submission_url
+
 CREDENTIALS_FILE = Path("CREDENTIALS.csv")
 REFERENCE_DIR = Path("BATCH_REFERENCE")
 
 LOCATION_ID = "5"
 FORM_UUID = "12de5bc5-352e-4faf-9961-a2125085a75c"
 REQUEST_TIMEOUT = 45
-LAST_SUBMISSION_ERROR_FILE = Path("batch2_last_submission_error.html")
+LAST_SUBMISSION_ERROR_FILE = Path("batch3_last_submission_error.html")
 VISIT_DATE_CONFLICT_MESSAGE = (
     "The date you selected is conflicting with other visit(s). "
     "Click to navigate to a visit:"
 )
+
+
+def parse_eregister_dates(values):
+    """Parse E-register dates without swapping ISO months and days."""
+    text = values.astype("string").str.strip()
+    parsed = pd.Series(pd.NaT, index=values.index, dtype="datetime64[ns]")
+
+    # Excel date/time serials can appear when users upload an untouched export.
+    numeric = pd.to_numeric(text, errors="coerce")
+    excel_serial = numeric.between(20_000, 80_000)
+    parsed.loc[excel_serial] = pd.to_datetime(
+        numeric.loc[excel_serial],
+        unit="D",
+        origin="1899-12-30",
+        errors="coerce",
+    )
+
+    # `dayfirst=True` corrupts ambiguous ISO values; e.g. 2026-08-07 can
+    # become 2026-07-08. Parse year-first values separately.
+    iso_date = (
+        text.str.match(
+            r"^\d{4}[-/]\d{1,2}[-/]\d{1,2}(?:[T\s]|$)",
+            na=False,
+        )
+        & parsed.isna()
+    )
+    parsed.loc[iso_date] = pd.to_datetime(
+        text.loc[iso_date],
+        format="mixed",
+        yearfirst=True,
+        errors="coerce",
+    )
+
+    # Values containing only a time have already lost their calendar date and
+    # must not be silently converted to today's date.
+    time_only = text.str.match(
+        r"^\d{1,2}:\d{2}(?::\d{2})?(?:\.\d+)?$",
+        na=False,
+    )
+    day_first_date = (
+        parsed.isna()
+        & text.notna()
+        & text.ne("")
+        & ~time_only
+    )
+    parsed.loc[day_first_date] = pd.to_datetime(
+        text.loc[day_first_date],
+        format="mixed",
+        dayfirst=True,
+        errors="coerce",
+    )
+    return parsed
 
 
 class EmrError(RuntimeError):
@@ -58,18 +112,35 @@ class VisitDateConflictError(EmrError):
 class FormParser(HTMLParser):
     """Collect successful controls from the HMIS HTML form."""
 
+    SEMANTIC_CONTROL_IDS = {
+        "art-regimen",
+        "no-of-art-pills",
+        "no-of-art-pills-days",
+    }
+
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.in_target_form = False
         self.depth = 0
         self.action = ""
-        self.controls = []
-        self.select_options = {}
+        self.controls: list[tuple[str, str]] = []
+        self.select_options: dict[str, list[dict[str, object]]] = {}
+        self.semantic_controls: dict[str, str] = {}
+        self.pending_semantic_control = None
         self.select = None
         self.option = None
         self.textarea = None
 
+    def remember_semantic_control(self, name):
+        """Associate a generated w-number with its stable HMIS container ID."""
+        if self.pending_semantic_control:
+            self.semantic_controls.setdefault(
+                self.pending_semantic_control, name
+            )
+            self.pending_semantic_control = None
+
     def finish_option(self):
+        """Save an option even when its optional closing tag is omitted."""
         if self.option is None or self.select is None:
             return
         if self.option["value"] is None:
@@ -79,9 +150,16 @@ class FormParser(HTMLParser):
 
     @staticmethod
     def clean_attribute(value):
+        """Remove quote characters emitted inside generated HTML attributes."""
         if value is None:
             return None
+        # Generated UgandaEMR markup contains sequences such as value=\"16\"/.
+        # HTMLParser exposes the trailing quote/backslash/slash as part of the
+        # value, so remove all of those wrapper characters at both ends.
         cleaned = str(value).strip()
+        # A leading slash may be a legitimate absolute application path.
+        # Remove only quote/backslash wrappers on the left, while the right
+        # side may also contain the stray self-closing-tag slash.
         return cleaned.lstrip("\\\"'").rstrip("\\\"'/").strip()
 
     def handle_starttag(self, tag, attrs):
@@ -98,22 +176,29 @@ class FormParser(HTMLParser):
         if not self.in_target_form:
             return
 
+        element_id = self.clean_attribute(attrs.get("id"))
+        if element_id in self.SEMANTIC_CONTROL_IDS:
+            self.pending_semantic_control = element_id
+
         if tag == "input":
             name = self.clean_attribute(attrs.get("name"))
             input_type = (
                 self.clean_attribute(attrs.get("type", "text")) or "text"
             ).lower()
-            if not name or attrs.get("disabled") is not None:
+            if not name or "disabled" in attrs:
                 return
             if input_type in {"button", "submit", "reset", "file", "image"}:
                 return
             if input_type in {"checkbox", "radio"} and "checked" not in attrs:
                 return
             value = self.clean_attribute(attrs.get("value", "")) or ""
+            self.remember_semantic_control(name)
             self.controls.append((name, value))
         elif tag == "select" and attrs.get("name"):
+            name = self.clean_attribute(attrs["name"])
+            self.remember_semantic_control(name)
             self.select = {
-                "name": self.clean_attribute(attrs["name"]),
+                "name": name,
                 "disabled": "disabled" in attrs,
                 "options": [],
             }
@@ -294,8 +379,22 @@ def create_visit(session, base_url, patient_uuid, patient_id, visit_date):
                 == visit_date
             )
 
-        if any(is_same_visit_date(item) for item in existing_results):
-            raise VisitDateConflictError
+        same_date_visits = [
+            item for item in existing_results if is_same_visit_date(item)
+        ]
+        if same_date_visits:
+            reusable = [
+                item for item in same_date_visits if not (item.get("encounters") or [])
+            ]
+            if len(same_date_visits) != 1 or len(reusable) != 1:
+                raise VisitDateConflictError(
+                    "The last encounter date conflicts with an existing visit."
+                )
+            visit_uuid = reusable[0].get("uuid")
+            if not visit_uuid:
+                raise EmrError("The existing empty visit has no UUID.")
+            visit_id = reusable[0].get("visitId") or reusable[0].get("id")
+            return str(visit_uuid), str(visit_id or "")
 
     response = request(
         session,
@@ -313,19 +412,20 @@ def create_visit(session, base_url, patient_uuid, patient_id, visit_date):
         VISIT_DATE_CONFLICT_MESSAGE in response.text
         or "conflicting with other visit" in response.text
     ):
-        raise VisitDateConflictError
+        raise VisitDateConflictError(
+            "The last encounter date conflicts with an existing visit."
+        )
     if response.status_code >= 400:
         raise EmrError("OpenMRS could not create the retrospective visit.")
 
-    visit_uuid = None
-    visit_id = None
     try:
         payload = response.json()
     except ValueError:
         payload = {}
-    if isinstance(payload, dict):
-        visit_uuid = payload.get("uuid") or payload.get("visitUuid")
-        visit_id = payload.get("visitId") or payload.get("id")
+    if not isinstance(payload, dict):
+        payload = {}
+    visit_uuid = payload.get("uuid") or payload.get("visitUuid")
+    visit_id = payload.get("visitId") or payload.get("id")
 
     visits = request(
         session,
@@ -345,16 +445,17 @@ def create_visit(session, base_url, patient_uuid, patient_id, visit_date):
         except ValueError:
             candidates = []
         dated = [
-            item for item in candidates
+            item
+            for item in candidates
             if str(item.get("startDatetime", ""))[:10] == visit_date
         ]
         if dated:
             chosen = dated[-1]
             visit_uuid = visit_uuid or chosen.get("uuid")
             visit_id = visit_id or chosen.get("visitId") or chosen.get("id")
+
     if not visit_uuid:
         raise EmrError("The new visit UUID could not be determined.")
-
     dashboard = request(
         session,
         "GET",
@@ -394,6 +495,47 @@ def select_value_for_label(parser, control_name, selected_label):
     )
 
 
+def art_medication_controls(parser, selected_label):
+    regimen_name = parser.semantic_controls.get("art-regimen")
+    if not regimen_name:
+        matching_selects = []
+        for name, options in parser.select_options.items():
+            if any(
+                (FormParser.clean_attribute(option.get("value")) or "")
+                and str(option.get("text") or "").strip() == selected_label
+                for option in options
+            ):
+                matching_selects.append(name)
+        if len(matching_selects) != 1:
+            raise EmrError(
+                f"The HMIS form does not contain ART regimen {selected_label}."
+            )
+        regimen_name = matching_selects[0]
+
+    regimen_value = select_value_for_label(parser, regimen_name, selected_label)
+    pills_name = parser.semantic_controls.get("no-of-art-pills")
+    days_name = parser.semantic_controls.get("no-of-art-pills-days")
+    generated_match = re.fullmatch(r"w(\d+)", regimen_name)
+    if generated_match:
+        generated_number = int(generated_match.group(1))
+        pills_name = pills_name or f"w{generated_number + 4}"
+        days_name = days_name or f"w{generated_number + 6}"
+
+    available_controls = {name for name, _ in parser.controls}
+    if (
+        not pills_name
+        or not days_name
+        or pills_name not in available_controls
+        or days_name not in available_controls
+    ):
+        raise EmrError("The HMIS ART pill and day fields could not be identified.")
+    return regimen_name, regimen_value, pills_name, days_name
+
+
+def control_value(controls, name):
+    return next((value for key, value in reversed(controls) if key == name), "")
+
+
 def submit_hmis_form(
     session,
     base_url,
@@ -406,9 +548,10 @@ def submit_hmis_form(
     quantity,
     regimen,
 ):
+    visit_reference = visit_id or visit_uuid
     return_url = (
-        f"/openmrs/coreapps/patientdashboard/patientDashboard.page?"
-        f"patientId={patient_id}&visitId={visit_id}"
+        "/openmrs/coreapps/patientdashboard/patientDashboard.page?"
+        f"patientId={patient_id}&visitId={visit_reference}"
     )
     form_url = f"{base_url}/htmlformentryui/htmlform/enterHtmlFormWithStandardUi.page"
     response = request(
@@ -430,32 +573,40 @@ def submit_hmis_form(
     if not parser.action:
         raise EmrError("The HMIS submission form was not found in the page.")
     provider_value, _ = first_provider(parser)
-    regimen_value = select_value_for_label(parser, "w589", regimen)
+    regimen_name, regimen_value, pills_name, days_name = art_medication_controls(
+        parser, regimen
+    )
 
-    controls = parser.controls
+    controls = refill_controls(response.text, parser.controls)
+    form_visit_id = control_value(controls, "visitId") or visit_id
+    if not form_visit_id:
+        raise EmrError("The HMIS form did not contain its numeric visit ID.")
+    return_url = (
+        "/openmrs/coreapps/patientdashboard/patientDashboard.page?"
+        f"patientId={patient_id}&visitId={form_visit_id}"
+    )
     updates = {
         "personId": patient_id,
         "createVisit": "false",
-        "visitId": visit_id,
+        "visitId": form_visit_id,
         "returnUrl": return_url,
         "w1": LOCATION_ID,
         "w3": visit_date,
         "w6": return_date,
         "w9": provider_value,
         "w16": "164972",
-        "w589": regimen_value,
-        "w593": quantity,
-        "w595": quantity,
+        regimen_name: regimen_value,
+        pills_name: quantity,
+        days_name: quantity,
     }
     for name, value in updates.items():
         set_control(controls, name, value)
 
-    multipart = [(name, (None, value)) for name, value in controls]
     submitted = request(
         session,
         "POST",
-        urljoin(form_url, parser.action),
-        files=multipart,
+        submission_url(base_url, parser.action),
+        files=[(name, (None, value)) for name, value in controls],
         headers={
             "Accept": "application/json, text/javascript, */*; q=0.01",
             "X-Requested-With": "XMLHttpRequest",
@@ -463,21 +614,7 @@ def submit_hmis_form(
         },
         allow_redirects=True,
     )
-    body = submitted.text.lower()
-    if submitted.status_code >= 400 or any(
-        marker in body
-        for marker in ("error submitting", "validation error", "has errors")
-    ):
-        try:
-            LAST_SUBMISSION_ERROR_FILE.write_text(
-                submitted.text, encoding="utf-8", errors="replace"
-            )
-        except OSError:
-            pass
-        raise EmrError(
-            "OpenMRS rejected the HMIS form submission. Server response was "
-            "saved to batch2_last_submission_error.html."
-        )
+    check_submission(submitted, LAST_SUBMISSION_ERROR_FILE, EmrError)
 
 
 def update_client(
@@ -620,8 +757,40 @@ a = df.shape[0]
 
 df = df[['MR - First name', 'MR - Surname', 'MR - Sex' ,'HIV/ART-Next Appointment date', 'Last updated on','ART: Art Number','HIV-ART Regimen - No. of days dispensed','Service Type']]
 
-df[['HIV/ART-Next Appointment date', 'Last updated on']] = (df[['HIV/ART-Next Appointment date', 'Last updated on']]
-                                                            .apply(lambda col: pd.to_datetime(col,format='mixed',dayfirst=True).dt.date))
+date_columns = ['HIV/ART-Next Appointment date', 'Last updated on']
+raw_dates = df[date_columns].copy()
+parsed_dates = raw_dates.apply(parse_eregister_dates)
+raw_date_present = raw_dates.apply(
+    lambda col: col.astype('string').str.strip().notna()
+    & col.astype('string').str.strip().ne('')
+)
+invalid_dates = raw_date_present & parsed_dates.isna()
+missing_last_updated = parsed_dates['Last updated on'].isna()
+rejected_date_rows = invalid_dates.any(axis=1) | missing_last_updated
+
+if rejected_date_rows.any():
+    invalid_rows = df.loc[rejected_date_rows].copy()
+    invalid_rows['DATE ERROR'] = np.where(
+        missing_last_updated.loc[rejected_date_rows],
+        'MISSING OR INVALID LAST UPDATED DATE',
+        'INVALID NEXT APPOINTMENT DATE',
+    )
+    st.warning(
+        f"{invalid_rows.shape[0]} row(s) contain a missing or invalid "
+        "required date. Upload the original untouched E-register CSV; do "
+        "not open and re-save it while Excel displays values such as "
+        "49:19.6 or 00:00.0. A blank next-appointment date is allowed only "
+        "when it is genuinely blank and days dispensed can generate it."
+    )
+    st.download_button(
+        "DOWNLOAD INVALID DATE ROWS",
+        data=invalid_rows.to_csv(index=False).encode('utf-8'),
+        file_name='invalid_date_rows.csv',
+        mime='text/csv',
+    )
+    st.stop()
+
+df[date_columns] = parsed_dates.apply(lambda col: col.dt.date)
 
 dfart = df[df['ART: Art Number'].isnull()].copy()
 
@@ -646,19 +815,6 @@ dfart['ART_STATUS'] = 'NO ART NUMBER'
 
 no_art = dfart.shape[0]
 
-dfdup = dfartn[dfartn['ART'].duplicated()].copy()
-
-dfdup['DUP STATUS'] = 'DUPLICATED IN E-REGISTER'
-
-dup_ereg = dfdup.shape[0]
-
-dfnodup = dfartn[~dfartn['ART'].duplicated()].copy()
-
-if dfdup.shape[0]>0:
-    dfartn = pd.concat([dfdup, dfnodup])
-else:
-    dfartn = dfnodup
-
 if dfart.shape[0]>0:
     df = pd.concat([dfart, dfartn])
 else:
@@ -666,48 +822,31 @@ else:
 
 df['HIV-ART Regimen - No. of days dispensed'] = pd.to_numeric(df['HIV-ART Regimen - No. of days dispensed'], errors = 'coerce')
 
-dfnopills = df[df['HIV-ART Regimen - No. of days dispensed'].isnull()].copy()#NO PILLS 
+days_column = 'HIV-ART Regimen - No. of days dispensed'
+next_appointment_column = 'HIV/ART-Next Appointment date'
 
-dfpills = df[df['HIV-ART Regimen - No. of days dispensed'].notnull()].copy() #HAS PILLS
+missing_days = df[days_column].isna()
+missing_next_appointment = df[next_appointment_column].isna()
 
-dfnoday = dfnopills[((dfnopills['HIV-ART Regimen - No. of days dispensed'].isnull()) & (dfnopills['HIV/ART-Next Appointment date'].isnull()))].copy()
-
-dfday = dfnopills[((dfnopills['HIV-ART Regimen - No. of days dispensed'].isnull()) & (dfnopills['HIV/ART-Next Appointment date'].notnull()))].copy()
+# Rule 1: days are missing but both dates exist. Derive days dispensed.
+derive_days = missing_days & ~missing_next_appointment
+dfday = df.loc[derive_days].copy()
 
 dfday = dfday.drop(columns=['HIV-ART Regimen - No. of days dispensed'])
 
 dfday[['HIV/ART-Next Appointment date', 'Last updated on']] = (dfday[['HIV/ART-Next Appointment date', 'Last updated on']]
-                                                            .apply(lambda col: pd.to_datetime(col,format='mixed',dayfirst=True)))
+                                                            .apply(parse_eregister_dates))
 
-dfday['HIV-ART Regimen - No. of days dispensed'] = (
-    pd.to_datetime(
-        dfday['HIV/ART-Next Appointment date'],
-        errors='coerce',
-    )
-    - pd.to_datetime(
-        dfday['Last updated on'],
-        errors='coerce',
-    )
-) / pd.Timedelta(days=1)
+dfday['HIV-ART Regimen - No. of days dispensed'] = ( dfday['HIV/ART-Next Appointment date'] - dfday['Last updated on']).dt.days
 
-dfnoday['DAYS_STATUS'] = 'MISSING DAYS DISPENSED'
+df.loc[dfday.index, days_column] = dfday[days_column]
 
-dfnoday = dfnoday.drop(columns =['HIV/ART-Next Appointment date','HIV-ART Regimen - No. of days dispensed'])
-
-#dfa = pd.concat([dfday, dfnoday])
-
-dfs = [dfx for dfx in [dfday, dfnoday] if not df.empty]
-
-
-dfa = pd.concat(dfs, ignore_index=True)
-
-dfnodate = dfpills[dfpills['HIV/ART-Next Appointment date'].isnull()].copy()
-
-dfdate = dfpills[dfpills['HIV/ART-Next Appointment date'].notna()].copy()
-
+# Rule 2: the next appointment is missing but days dispensed exist. Derive it.
+derive_next_appointment = ~missing_days & missing_next_appointment
+dfnodate = df.loc[derive_next_appointment].copy()
 dfnodate = dfnodate.drop(columns =['HIV/ART-Next Appointment date'])
 
-dfnodate['Last updated on'] = pd.to_datetime(dfnodate['Last updated on'],format='mixed',dayfirst=True)
+dfnodate['Last updated on'] = parse_eregister_dates(dfnodate['Last updated on'])
 
 dfnodate['HIV-ART Regimen - No. of days dispensed'] = pd.to_numeric(dfnodate['HIV-ART Regimen - No. of days dispensed'], errors='coerce')
 
@@ -715,25 +854,22 @@ dfnodate['days'] = pd.to_timedelta(dfnodate['HIV-ART Regimen - No. of days dispe
 
 dfnodate['HIV/ART-Next Appointment date'] = dfnodate['Last updated on'] + dfnodate['days']
 
-#dfb = pd.concat([dfdate, dfnodate])
+df.loc[dfnodate.index, next_appointment_column] = dfnodate[
+    next_appointment_column
+]
+df.loc[dfnodate.index, 'days'] = dfnodate['days']
 
-dfs = [dfx for dfx in [dfdate, dfnodate] if not df.empty]
-
-
-dfb = pd.concat(dfs, ignore_index=True)
-
-#df = pd.concat([dfa, dfb])
-
-dfs = [dfx for dfx in [dfa, dfb] if not df.empty]
-
-
-df = pd.concat(dfs, ignore_index=True)
+# Rule 3: only rows missing both values are flagged for manual correction.
+missing_days_and_next_appointment = missing_days & missing_next_appointment
+dfnoday = df.loc[missing_days_and_next_appointment].copy()
+df.loc[
+    missing_days_and_next_appointment,
+    'DAYS_STATUS',
+] = 'MISSING DAYS DISPENSED AND NEXT APPOINTMENT DATE'
 
 def pillcheck(days):
     if pd.isna(days):
         return None
-    if days < 0:
-        return 'NEXT APPT < LAST ENCOUNTER, CHECK'
     if 0 <= days < 30:
         return 'FEW DAYS DISPENSED, CHECK'
     if 30 <= days <= 185:
@@ -749,16 +885,15 @@ df['DAYS ERROR']  = df['HIV-ART Regimen - No. of days dispensed'].apply(pillchec
 dfmany = df[df['DAYS ERROR']=='MANY DAYS DISPENSED, CHECK'].copy()
 
 dfew = df[df['DAYS ERROR']== 'FEW DAYS DISPENSED, CHECK'].copy()
-dfqn = df[df['DAYS ERROR']== 'NEXT APPT < LAST ENCOUNTER, CHECK'].copy()
-dfcorrect = df[~df['DAYS ERROR'].isin(['MANY DAYS DISPENSED, CHECK','FEW DAYS DISPENSED, CHECK', 'NEXT APPT < LAST ENCOUNTER, CHECK'])].copy()
+dfcorrect = df[~df['DAYS ERROR'].isin(['MANY DAYS DISPENSED, CHECK','FEW DAYS DISPENSED, CHECK'])].copy()
 
 df = pd.concat(
-    [dfew, dfmany, dfqn, dfcorrect],
+    [dfew, dfmany, dfcorrect],
     ignore_index=True,
 )
 cols = ['MR - First name', 'MR - Surname', 'MR - Sex','Service Type','ART: Art Number','ART',
          'Last updated on','HIV-ART Regimen - No. of days dispensed', 'HIV/ART-Next Appointment date','ART_STATUS',  
-         'DUP STATUS','DAYS_STATUS', 'days','DAYS ERROR']
+         'DAYS_STATUS', 'days','DAYS ERROR']
 seta = set(df.columns)
 setb = set(cols)
 setc = setb-seta
@@ -769,17 +904,12 @@ for date_column in (
     'Last updated on',
     'HIV/ART-Next Appointment date',
 ):
-    df[date_column] = pd.to_datetime(
-        df[date_column],
-        format='mixed',
-        dayfirst=True,
-        errors='coerce',
+    df[date_column] = parse_eregister_dates(
+        df[date_column]
     ).dt.strftime('%d/%m/%Y')
 
 checkd = {'NO ART NOs': dfart.shape[0],
-          'DUPLICATED IN E-REG': dfdup.shape[0],
-          'NEXT APPT < LAST ENCOUNTER, CHECK': dfqn.shape[0],
-          'NO DAYS DISPENSED' : dfnoday.shape[0],
+          'NO DAYS DISPENSED AND NO NEXT APPOINTMENT': dfnoday.shape[0],
           'FEW DAYS DISPENSED' : dfew.shape[0],
           'TOO MANY DAYS DISPENSED': dfmany.shape[0]
 }
@@ -799,7 +929,7 @@ if has_data_issues:
     )
     st.stop()
 
-b =df.shape[0] + dfmany.shape[0] + dfew.shape[0]+dfqn.shape[0] 
+b =df.shape[0] + dfmany.shape[0] + dfew.shape[0]
 
 
 
@@ -818,12 +948,7 @@ df = df.rename(columns = {'HIV/ART-Next Appointment date':'Return Visit Date', '
                           'HIV-ART Regimen - No. of days dispensed': 'Days Dispensed'})
 
 for date_column in ('Return Visit Date', 'Last Encounter Date'):
-    df[date_column] = pd.to_datetime(
-        df[date_column],
-        format='mixed',
-        dayfirst=True,
-        errors='coerce',
-    )
+    df[date_column] = parse_eregister_dates(df[date_column])
 
 df['Rday'] = df['Return Visit Date'].dt.day
 
@@ -854,8 +979,6 @@ df2 = df2[df2['ART'].notna()].copy()
 df = df[df['ART'].notna()].copy()
 
 df['ART'] = pd.to_numeric(df['ART'], errors = 'coerce')
-
-df = df.drop_duplicates(subset= ['ART'], keep='first') ####DUPS WON'T PASS ANYWAY, REMOVE LATER
 
 df['ART'] = pd.to_numeric(df['ART'], errors = 'coerce')
 
@@ -944,7 +1067,7 @@ if st.button("BATCH UPLOAD", type="primary"):
                 flush=True,
             )
             rejected = client.to_dict()
-            rejected['REASON_REJECTED'] = 'FAILED TO UPDATE'
+            rejected['REASON_REJECTED'] = f'FAILED TO UPDATE: {exc}'
             failed_rows.append(rejected)
 
         if total_updates:

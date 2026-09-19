@@ -21,6 +21,8 @@ build_number = 3
 module = "main.py"
 exclude = [
     ".venv",
+    "RELEASES",
+    "test_flet_app.py",
     "BATCH_REFERENCE",
     "CREDENTIALS.csv",
     "convert_data.py",

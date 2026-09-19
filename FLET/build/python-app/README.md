@@ -4,12 +4,21 @@ Native Flet application containing three workflows:
 
 - `ONE_CLIENT` — update one client using the selected facility reference.
 - `EREGISTERS` — validate and process a full E-register CSV.
-- `EMR_EXTRACT` — process a compact CSV with `ART`, `LD`, `RD`, and `ARVD`.
+- `EMR_EXTRACT` — process a compact CSV with `ART`, `LD`, and `ARVD`; the
+  return date (`RD`) is calculated as `LD + ARVD`.
 
 The application connects directly to the selected facility's local UgandaEMR
 server. An Android device must be connected to the same facility network as the
 EMR server. A server address such as `127.0.0.1` refers to the phone itself on
 Android and should not be used for a different computer.
+
+Connection and login failures include a diagnostic code such as
+`NETWORK_CONNECT_TIMEOUT`, `LOGIN_REJECTED_BY_EMR`, `LOGIN_PAGE_RETURNED`, or
+`LOGIN_SESSION_NOT_ESTABLISHED`. The message identifies the failed stage, HTTP
+status, final URL, redirects, and session-location ID without displaying the
+password. `Validation complete` in a batch workflow validates the CSV only;
+authentication is confirmed only when the final result reports at least one
+updated client.
 
 ## Run on Windows during development
 

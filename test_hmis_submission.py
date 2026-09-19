@@ -139,6 +139,14 @@ class BatchIntegrationTests(unittest.TestCase):
                 self.assertEqual(posted["w469"], "30")
                 self.assertEqual(posted["w16"], "164972")
 
+    def test_batch4_replaces_generated_diagnosis_field(self):
+        helpers = self.helpers("batch4.py")
+        parser = helpers["FormParser"]()
+        parser.feed('''<form action="enterHtmlForm/submit.action">
+          <input name="w199" id="encounterDiagnoses"><input name="w3">
+          </form>''')
+        self.assertEqual(parser.browser_managed_controls, {"w199"})
+
     def test_all_batches_reuse_only_a_single_empty_visit(self):
         import pandas as pd
         for filename in ("batch2.py", "batch3.py", "batch4.py"):

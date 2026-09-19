@@ -11,7 +11,11 @@ import pandas as pd
 import requests
 import streamlit as st
 
-from hmis_submission import check_submission, refill_controls, submission_url
+from hmis_submission import (
+    check_submission,
+    refill_controls,
+    submission_url,
+)
 
 
 CREDENTIALS_FILE = Path("CREDENTIALS.csv")
@@ -60,6 +64,7 @@ class FormParser(HTMLParser):
         "no-of-art-pills",
         "no-of-art-pills-days",
     }
+    BROWSER_MANAGED_CONTROL_MARKER = "encounterdiagnos"
 
     def __init__(self):
         super().__init__(convert_charrefs=True)
@@ -70,6 +75,8 @@ class FormParser(HTMLParser):
         self.select_options: dict[str, list[dict[str, object]]] = {}
         self.semantic_controls: dict[str, str] = {}
         self.pending_semantic_control = None
+        self.pending_browser_managed_control = False
+        self.browser_managed_controls: set[str] = set()
         self.select = None
         self.option = None
         self.textarea = None
@@ -111,6 +118,11 @@ class FormParser(HTMLParser):
         element_id = self.clean_attribute(attrs.get("id"))
         if element_id in self.SEMANTIC_CONTROL_IDS:
             self.pending_semantic_control = element_id
+        if (
+            tag.lower() == "encounterdiagnosis"
+            or self.BROWSER_MANAGED_CONTROL_MARKER in str(element_id or "").lower()
+        ):
+            self.pending_browser_managed_control = True
 
         if tag == "input":
             name = self.clean_attribute(attrs.get("name"))
@@ -125,10 +137,16 @@ class FormParser(HTMLParser):
                 return
             value = self.clean_attribute(attrs.get("value", "")) or ""
             self.remember_semantic_control(name)
+            if self.pending_browser_managed_control:
+                self.browser_managed_controls.add(name)
+                self.pending_browser_managed_control = False
             self.controls.append((name, value))
         elif tag == "select" and attrs.get("name"):
             name = self.clean_attribute(attrs["name"])
             self.remember_semantic_control(name)
+            if self.pending_browser_managed_control:
+                self.browser_managed_controls.add(name)
+                self.pending_browser_managed_control = False
             self.select = {
                 "name": name,
                 "disabled": "disabled" in attrs,
@@ -499,7 +517,11 @@ def submit_hmis_form(
         parser, regimen
     )
 
-    controls = refill_controls(response.text, parser.controls)
+    controls = [
+        (name, value)
+        for name, value in refill_controls(response.text, parser.controls)
+        if name not in parser.browser_managed_controls
+    ]
     form_visit_id = control_value(controls, "visitId") or visit_id
     if not form_visit_id:
         raise EmrError("The HMIS form did not contain its numeric visit ID.")
@@ -517,6 +539,10 @@ def submit_hmis_form(
         "w6": return_date,
         "w9": provider_value,
         "w16": "164972",
+        # The manual browser submit replaces the generated diagnosis w-field
+        # with this JSON list.  Sending the generated field produces OpenMRS'
+        # "invalid json list submitted" error instead.
+        "encounterDiagnoses": "[]",
         regimen_name: regimen_value,
         pills_name: quantity,
         days_name: quantity,

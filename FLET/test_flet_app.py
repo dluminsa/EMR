@@ -58,7 +58,7 @@ class FletAppDataTests(unittest.TestCase):
         self.assertEqual(result.ready.loc[0, "ARVS"], "TDF-3TC-DTG")
         self.assertEqual(result.ready.loc[0, "ARVD_PARSED"], 30)
         self.assertEqual(
-            result.ready.loc[0, "RD_PARSED"].date().isoformat(), "2026-08-31"
+            result.ready.loc[0, "RD_PARSED"].date().isoformat(), "2026-08-30"
         )
 
     def test_eregister_data_issue_blocks_the_whole_upload(self):
@@ -97,6 +97,24 @@ class FletAppDataTests(unittest.TestCase):
 
         self.assertFalse(result.blocked)
         self.assertEqual(result.ready.loc[0, "ARVD_PARSED"], 30)
+
+    def test_eregister_iso_and_excel_dates_keep_calendar_date(self):
+        for raw in ("2026-08-07", 46241):
+            with self.subTest(raw=raw):
+                result = prepare_eregister(pd.DataFrame([eregister_row(**{
+                    "Last updated on": raw,
+                    "HIV/ART-Next Appointment date": None,
+                })]), self.reference)
+                self.assertFalse(result.blocked)
+                self.assertEqual(str(result.ready.loc[0, "LD_PARSED"].date()), "2026-08-07")
+                self.assertEqual(str(result.ready.loc[0, "RD_PARSED"].date()), "2026-09-06")
+
+    def test_invalid_appointment_is_not_replaced_by_derived_date(self):
+        result = prepare_eregister(pd.DataFrame([eregister_row(**{
+            "HIV/ART-Next Appointment date": "49:19.6",
+        })]), self.reference)
+        self.assertTrue(result.blocked)
+        self.assertIn("INVALID NEXT APPOINTMENT DATE", result.issue_counts)
 
     def test_converter_preserves_identifiers_and_reports_bad_reference(self):
         with TemporaryDirectory() as source_name, TemporaryDirectory() as output_name:
