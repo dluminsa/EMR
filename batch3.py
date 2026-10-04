@@ -753,6 +753,10 @@ df['Service Type'] = df['Service Type'].astype(str)
 
 df = df[df['Service Type'].str.contains('ART')].copy()
 
+if df.empty:
+    st.warning("No ART records were found in the uploaded enrollments CSV.")
+    st.stop()
+
 a = df.shape[0]
 
 df = df[['MR - First name', 'MR - Surname', 'MR - Sex' ,'HIV/ART-Next Appointment date', 'Last updated on','ART: Art Number','HIV-ART Regimen - No. of days dispensed','Service Type']]
@@ -760,9 +764,13 @@ df = df[['MR - First name', 'MR - Surname', 'MR - Sex' ,'HIV/ART-Next Appointmen
 date_columns = ['HIV/ART-Next Appointment date', 'Last updated on']
 raw_dates = df[date_columns].copy()
 parsed_dates = raw_dates.apply(parse_eregister_dates)
-raw_date_present = raw_dates.apply(
-    lambda col: col.astype('string').str.strip().notna()
-    & col.astype('string').str.strip().ne('')
+raw_date_present = pd.DataFrame(
+    {
+        column: raw_dates[column].astype('string').str.strip().fillna('').ne('')
+        for column in date_columns
+    },
+    index=raw_dates.index,
+    dtype=bool,
 )
 invalid_dates = raw_date_present & parsed_dates.isna()
 missing_last_updated = parsed_dates['Last updated on'].isna()

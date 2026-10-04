@@ -1,5 +1,6 @@
 import pandas as pd
 import unittest
+from unittest.mock import patch
 
 import batch4
 
@@ -12,7 +13,59 @@ def upload(*rows):
     return pd.DataFrame(rows, columns=["ART", "LD", "ARVD"])
 
 
+class LoadCredentialsTests(unittest.TestCase):
+    def test_facility_with_username_is_selectable_and_missing_username_is_dropped(self):
+        rows = pd.DataFrame(
+            {
+                "DISTRICT": [" SEMBABULE ", "SEMBABULE"],
+                "FACILITY": [" NTUUSI ", "OTHER"],
+                "ip": ["192.0.2.1", None],
+                "user": ["test-user", None],
+                "password": [None, None],
+            }
+        )
+        with patch.object(batch4.Path, "is_file", return_value=True), patch.object(
+            batch4.pd, "read_csv", return_value=rows
+        ):
+            credentials = batch4.load_credentials()
+
+        facilities = credentials.loc[
+            credentials["DISTRICT"].eq("SEMBABULE"), "FACILITY"
+        ].tolist()
+        self.assertIn("NTUUSI", facilities)
+        self.assertNotIn("OTHER", facilities)
+
+
 class PrepareBatchTests(unittest.TestCase):
+    def test_decimal_padding_does_not_change_uploaded_art_number(self):
+        for art in (233, 233.0, "233", "233.0", " 00233.00 "):
+            with self.subTest(art=art):
+                ready, rejected = batch4.prepare_batch(
+                    upload((art, "01/08/2026", 30)),
+                    reference(("LKY 233", "TDF/3TC/DTG")),
+                )
+                self.assertTrue(rejected.empty)
+                self.assertEqual(ready.loc[0, "ART"], "233")
+                self.assertEqual(ready.loc[0, "Art"], "LKY 233")
+
+    def test_decimal_padding_in_reference_matches_integer_upload(self):
+        ready, rejected = batch4.prepare_batch(
+            upload(("233", "01/08/2026", 30)),
+            reference(("233.0", "TDF/3TC/DTG")),
+        )
+        self.assertTrue(rejected.empty)
+        self.assertEqual(ready.loc[0, "ART"], "233")
+
+    def test_fractional_art_is_rejected_instead_of_matching_another_patient(self):
+        ready, rejected = batch4.prepare_batch(
+            upload(("233.5", "01/08/2026", 30)),
+            reference(("LKY 2335", "TDF/3TC/DTG")),
+        )
+        self.assertTrue(ready.empty)
+        self.assertEqual(
+            rejected.loc[0, "REASON_REJECTED"], "BLANK OR INVALID ART NUMBER"
+        )
+
     def test_matches_on_digits_and_keeps_reference_identifier(self):
         ready, rejected = batch4.prepare_batch(
             upload(("002", "01/08/2026", "30")),

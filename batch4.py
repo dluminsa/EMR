@@ -18,7 +18,7 @@ from hmis_submission import (
 )
 
 
-CREDENTIALS_FILE = Path("CREDENTIALS.csv")
+CREDENTIALS_FILE = Path(__file__).resolve().parent / "FLET" / "CREDENTIALS.csv"
 REFERENCE_DIR = Path("BATCH_REFERENCE")
 LOCATION_ID = "5"
 FORM_UUID = "12de5bc5-352e-4faf-9961-a2125085a75c"
@@ -596,8 +596,14 @@ def update_client(
 
 
 def normalize_art_numbers(values):
-    """Return ART numbers as nullable integers after removing non-digits."""
-    digits = values.astype("string").str.replace(r"[^0-9]", "", regex=True)
+    """Normalize identifiers without treating decimal padding as ART digits."""
+    text = values.astype("string").str.strip()
+    # Spreadsheet exports can store integer identifiers as e.g. "233.0".
+    # Remove that padding before stripping separators from prefixed identifiers.
+    text = text.str.replace(r"^([0-9]+)\.0+$", r"\1", regex=True)
+    fractional = text.str.fullmatch(r"[0-9]+\.[0-9]+", na=False)
+    text = text.mask(fractional)
+    digits = text.str.replace(r"[^0-9]", "", regex=True)
     digits = digits.mask(digits.eq(""))
     numbers = pd.to_numeric(digits, errors="coerce")
     numbers = numbers.where(numbers > 0)
