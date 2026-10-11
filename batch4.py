@@ -3,9 +3,13 @@
 from __future__ import annotations
 
 import re
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from dataclasses import dataclass, field
 from html.parser import HTMLParser
 from pathlib import Path
+from threading import Lock
 from urllib.parse import urljoin
+from uuid import uuid4
 
 import pandas as pd
 import requests
@@ -18,11 +22,12 @@ from hmis_submission import (
 )
 
 
-CREDENTIALS_FILE = Path(__file__).resolve().parent / "FLET" / "CREDENTIALS.csv"
+CREDENTIALS_FILE = Path(__file__).resolve().parent / "CREDENTIALS.csv"
 REFERENCE_DIR = Path("BATCH_REFERENCE")
 LOCATION_ID = "5"
 FORM_UUID = "12de5bc5-352e-4faf-9961-a2125085a75c"
 REQUEST_TIMEOUT = 45
+MAX_CONCURRENT_UPDATES = 20
 LAST_SUBMISSION_ERROR_FILE = Path("batch4_last_submission_error.html")
 REQUIRED_UPLOAD_COLUMNS = {"ART", "LD", "ARVD"}
 REQUIRED_REFERENCE_COLUMNS = {"Art", "ARVS"}
@@ -54,6 +59,32 @@ class ArtNumberNotFoundInEmrError(EmrError):
 
 class VisitDateConflictError(EmrError):
     pass
+
+
+@dataclass
+class BatchJob:
+    total_updates: int
+    existing_rejected: pd.DataFrame
+    completed: int = 0
+    successful: int = 0
+    failed_rows: list[tuple[int, dict]] = field(default_factory=list)
+    status: str = "queued"
+    error: str | None = None
+    rejected: pd.DataFrame | None = None
+
+
+@dataclass
+class BatchJobManager:
+    jobs: dict[str, BatchJob] = field(default_factory=dict)
+    lock: Lock = field(default_factory=Lock)
+    coordinator: ThreadPoolExecutor = field(
+        default_factory=lambda: ThreadPoolExecutor(max_workers=1)
+    )
+
+
+@st.cache_resource
+def get_batch_job_manager():
+    return BatchJobManager()
 
 
 class FormParser(HTMLParser):
@@ -755,6 +786,7 @@ def show_rejected_download(rejected, *, key):
         file_name="rejected_data.csv",
         mime="text/csv",
         key=key,
+        on_click="ignore",
     )
 
 
@@ -777,15 +809,40 @@ def load_credentials():
 
 
 def run_updates(ready, existing_rejected, base_url, username, password):
-    failed_rows = []
-    successful_updates = 0
-    total_updates = len(ready)
-    progress = st.progress(0.0)
-    status = st.empty()
+    """Start a background batch and return its ID for progress polling."""
+    job_id = uuid4().hex
+    manager = get_batch_job_manager()
+    job = BatchJob(
+        total_updates=len(ready),
+        existing_rejected=existing_rejected.copy(),
+    )
+    with manager.lock:
+        manager.jobs[job_id] = job
+    try:
+        manager.coordinator.submit(
+            _run_updates,
+            manager,
+            job_id,
+            ready.copy(),
+            base_url,
+            username,
+            password,
+        )
+    except RuntimeError:
+        with manager.lock:
+            manager.jobs.pop(job_id, None)
+        raise
+    return job_id
 
-    for position, (_, client) in enumerate(ready.iterrows(), start=1):
+
+def _run_updates(manager, job_id, ready, base_url, username, password):
+    with manager.lock:
+        job = manager.jobs[job_id]
+        job.status = "running"
+        total_updates = job.total_updates
+
+    def update_one(position, client):
         art_number = str(client["Art"]).strip()
-        status.write(f"Updating {position} of {total_updates}: {art_number}")
         try:
             update_client(
                 base_url,
@@ -797,21 +854,91 @@ def run_updates(ready, existing_rejected, base_url, username, password):
                 int(client["ARVD_PARSED"]),
                 str(client["ARVS"]).strip(),
             )
-            successful_updates += 1
             print(f"[BATCH UPDATE SUCCESS] ART={art_number}", flush=True)
+            return position, None
         except Exception as exc:
             print(f"[BATCH UPDATE FAILED] ART={art_number}: {exc}", flush=True)
             failed = client.to_dict()
             failed["REASON_REJECTED"] = f"FAILED TO UPDATE: {exc}"
-            failed_rows.append(failed)
-        progress.progress(position / total_updates)
+            return position, failed
 
-    status.empty()
-    frames = [existing_rejected]
-    if failed_rows:
-        frames.append(pd.DataFrame(failed_rows))
-    rejected = pd.concat(frames, ignore_index=True, sort=False)
-    return successful_updates, rejected
+    try:
+        with ThreadPoolExecutor(
+            max_workers=min(MAX_CONCURRENT_UPDATES, total_updates)
+        ) as executor:
+            futures = [
+                executor.submit(update_one, position, client)
+                for position, (_, client) in enumerate(ready.iterrows(), start=1)
+            ]
+            for future in as_completed(futures):
+                position, failed = future.result()
+                with manager.lock:
+                    job = manager.jobs[job_id]
+                    job.completed += 1
+                    if failed is None:
+                        job.successful += 1
+                    else:
+                        job.failed_rows.append((position, failed))
+
+        with manager.lock:
+            job = manager.jobs[job_id]
+            frames = [job.existing_rejected]
+            if job.failed_rows:
+                job.failed_rows.sort(key=lambda row: row[0])
+                frames.append(pd.DataFrame([row for _, row in job.failed_rows]))
+            job.rejected = pd.concat(frames, ignore_index=True, sort=False)
+            job.status = "completed"
+    except Exception as exc:
+        with manager.lock:
+            job = manager.jobs[job_id]
+            job.error = str(exc)
+            job.status = "failed"
+        print(f"[BATCH UPDATE JOB FAILED] {exc}", flush=True)
+
+
+@st.fragment(run_every="1s")
+def render_update_progress():
+    job_id = st.session_state.get("batch_update_job_id")
+    if job_id is None:
+        return
+
+    manager = get_batch_job_manager()
+    with manager.lock:
+        job = manager.jobs.get(job_id)
+        if job is None:
+            rejected = st.session_state.get("batch_update_rejected")
+            if rejected is None:
+                st.error("The batch update job could not be found.")
+                return
+            st.write(
+                st.session_state.get(
+                    "batch_update_result_message",
+                    f"REJECTED: {len(rejected)}",
+                )
+            )
+            show_rejected_download(rejected, key="persistent_final_rejected")
+            return
+        completed = job.completed
+        total = job.total_updates
+        successful = job.successful
+        status = job.status
+        error = job.error
+        rejected = job.rejected
+
+    if status == "queued":
+        st.info("Batch update queued; it will start shortly.")
+    elif status == "running":
+        st.progress(completed / total)
+        st.info(f"Updating records: {completed} of {total} completed.")
+    elif status == "completed":
+        st.progress(1.0)
+        result_message = f"UPDATED: {successful}; REJECTED: {len(rejected)}"
+        st.session_state["batch_update_rejected"] = rejected.copy()
+        st.session_state["batch_update_result_message"] = result_message
+        st.success(result_message)
+        show_rejected_download(rejected, key="persistent_final_rejected")
+    else:
+        st.error(f"Batch update failed: {error}")
 
 
 def main():
@@ -935,11 +1062,26 @@ def main():
     username = str(credential["user"]).strip()
     password = str(credential["password"]).strip()
     if st.button("BATCH UPLOAD", type="primary"):
-        successful, final_rejected = run_updates(
-            ready, rejected, base_url, username, password
-        )
-        st.success(f"UPDATED: {successful}; REJECTED: {len(final_rejected)}")
-        show_rejected_download(final_rejected, key="final_rejected")
+        current_job_id = st.session_state.get("batch_update_job_id")
+        manager = get_batch_job_manager()
+        with manager.lock:
+            current_job = manager.jobs.get(current_job_id)
+            batch_is_active = current_job is not None and current_job.status in {
+                "queued",
+                "running",
+            }
+            if current_job_id and not batch_is_active:
+                manager.jobs.pop(current_job_id, None)
+        if batch_is_active:
+            st.warning("A batch update is already running in this session.")
+        else:
+            st.session_state.pop("batch_update_rejected", None)
+            st.session_state.pop("batch_update_result_message", None)
+            st.session_state["batch_update_job_id"] = run_updates(
+                ready, rejected, base_url, username, password
+            )
+    if st.session_state.get("batch_update_job_id"):
+        render_update_progress()
 
 
 if __name__ == "__main__":
